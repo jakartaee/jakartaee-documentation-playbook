@@ -1,0 +1,12 @@
+site:
+  title: Jakarta EE Documentation
+  start_page: jakarta-ee-docs::index.adoc
+content:
+  sources:
+  - url: ../jakartaee-tutorial
+    start_path: /src/main/docs
+    branches: antora-prototype
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
