@@ -7,7 +7,7 @@ content:
   - url: ../jakartaee-tutorial
     start_path: /src/main/docs
     branches:
-      - antora-prototype-9
+      - antora-prototype-9.1
       - antora-prototype
       -
 urls:

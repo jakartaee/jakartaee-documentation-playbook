@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakarta-ee-docs" data-version="9.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-intro/security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-advanced/security-advanced001.html">security-advanced/security-advanced001.adoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Documentation</span>
+    <span class="version">9.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../current/index.html">Jakarta EE Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../current/index.html">10</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">9.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../../current/security/security-api/security-api002.html">10</a>
+    <a class="version is-current" href="security-api002.html">9.1</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="file:///Users/kito/Core/Projects/eclipse.refresh.jakarta.ee.tutorial/vcs/jakartaee-tutorial/src/main/docs/modules/security/pages/security-api/security-api002.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_overview_of_the_http_authentication_mechanism_interface"><a class="anchor" href="#_overview_of_the_http_authentication_mechanism_interface"></a>Overview of the HTTP Authentication Mechanism Interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>HttpAuthenticationMechanism</code> interface defines an SPI for writing authentication mechanisms that can be provided with an application and deployed using CDI.
+Developers can write their own implementations of <code>HttpAuthenticationMechanism</code> to support specific authentication token types or protocols.
+There are also several built-in authentication mechanisms that perform BASIC, FORM, and Custom FORM authentication.</p>
+</div>
+<div class="paragraph">
+<p>The built-in authentication mechanisms are enabled and configured through the use of one of the following annotations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BasicAuthenticationMechanismDefinition</code>&#8201;&#8212;&#8201;implements BASIC authentication that conforms to the behavior of the servlet container when BASIC &lt;auth-method&gt; is declared in web.xml.</p>
+</li>
+<li>
+<p><code>FormAuthenticationMechanismDefinition</code>&#8201;&#8212;&#8201;implements FORM authentication that conforms to the behavior of the servlet container when the FORM &lt;auth-method&gt; is declared in web.xml.</p>
+</li>
+<li>
+<p><code>CustomFormAuthenticationMechanismDefinition</code>&#8201;&#8212;&#8201;implements a modified version of FORM authentication in which custom handling replaces the POST to j_security_check.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An implementation of HttpAuthenticationMechanism must be a CDI bean to be recognized and deployed at runtime, and is assumed to be normal scoped.
+During bean discovery, the servlet container looks for a bean that implements <code>HttpAuthenticationMechanism</code>&#8201;&#8212;&#8201;there should be only one per application&#8201;&#8212;&#8201;and, if found, arranges for it to be deployed to authenticate the application&#8217;s callers.</p>
+</div>
+<div class="paragraph">
+<p>The servlet container leverages Jakarta Authentication to deploy authentication mechanisms.
+The container provides a Jakarta Authentication Server Auth Module (SAM) that can delegate to an <code>HttpAuthenticationMechanism</code>, and arranges for that "bridge" SAM to be registered with the Jakarta Authentication <code>AuthConfigFactory</code>.
+At runtime, normal Jakarta Authentication processing invokes the bridge SAM, which then delegates to the <code>HttpAuthenticationMechanism</code> to perform the authentication and drive any necessary dialog with the caller, or with third parties involved in the authentication protocol flow.</p>
+</div>
+<div class="paragraph">
+<p>The HttpAuthenticationMechanism interface defines the following three methods, which correspond to the three methods defined by the Jakarta Authentication ServerAuth interface.
+When one of the Jakarta Authentication methods is invoked on the bridge SAM, it delegates to the corresponding method of the <code>HttpAuthenticationMechanism</code>.
+Although the method names are identical, the method signatures are not; the bridge SAM maps back and forth between the parameters passed to it by the Jakarta Authentication framework, and the parameters expected by an <code>HttpAuthenticationMechanism</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>validateRequest()</code>&#8201;&#8212;&#8201;validate an incoming request and authenticates the caller.</p>
+</li>
+<li>
+<p><code>secureResponse()</code>&#8201;&#8212;&#8201;(optional if default is sufficient) secure a response message.</p>
+</li>
+<li>
+<p><code>cleanSubject()</code>&#8201;&#8212;&#8201;(optional if default is sufficient) clear the provided Subject of principals and credentials.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only the <code>validateRequest()</code> method must be implemented by an <code>HttpAuthenticationMechanism</code>; the interface includes default implementations for <code>secureResponse()</code> and <code>cleanSubject()</code> that will often be sufficient.</p>
+</div>
+<div class="paragraph">
+<p>The following annotations can be used to add additional behaviors to an <code>HttpAuthenticationMechanism</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AutoApplySession</code>&#8201;&#8212;&#8201;indicates that the Jakarta Authentication <code>registerSession</code> functionality should be enabled such that the the caller&#8217;s authenticated identity is persisted in the caller&#8217;s servlet session.</p>
+</li>
+<li>
+<p><code>LoginToContinue</code>&#8201;&#8212;&#8201;mechanism to specify properties for FORM login&#8201;&#8212;&#8201;login page, error page, etc.
+The built-in FORM authentication mechanisms use LoginToContinue to configure the necessary parameters.</p>
+</li>
+<li>
+<p><code>RememberMe</code>&#8201;&#8212;&#8201;specifies that a <code>RememberMe</code> identity store should be used to enable <code>RememberMe</code> functionality for the authentication mechanism.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
