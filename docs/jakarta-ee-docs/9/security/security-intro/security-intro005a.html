@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakarta-ee-docs" data-version="9">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-advanced/security-advanced001.html">security-advanced/security-advanced001.adoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Documentation</span>
+    <span class="version">9</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../current/index.html">Jakarta EE Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../current/index.html">10</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../index.html">9</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">9</button>
+  <div class="version-menu">
+    <a class="version" href="../../../current/security/security-intro/security-intro005a.html">10</a>
+    <a class="version is-current" href="security-intro005a.html">9</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/virtua-tech/jakartaee-tutorial/edit/antora-prototype-9/src/main/docs/modules/security/pages/security-intro/security-intro005a.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_working_with_identity_stores"><a class="anchor" href="#_working_with_identity_stores"></a>Working with Identity Stores</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An identity store is a database or directory (store) that contains identity information about a collection of users that includes an application&#8217;s callers.
+An identity store holds callers names, group membership information, and information sufficient to allow it to validate a caller&#8217;s credentials.
+An identity store may also contain other information, such as globally unique caller identifiers or other caller attributes.</p>
+</div>
+<div class="paragraph">
+<p>As specified in the Jakarta EE Security API, the <code>IdentityStore</code> interface provides an abstraction of an identity store.
+Implementations of the <code>IdentityStore</code> interface interact with identity stores to authenticate users and to retrieve caller group information.
+Most often, an implementation of the <code>IdentityStore</code> interface interacts with an external identity store, such as an LDAP server, but it can also manage user account data itself.</p>
+</div>
+<div class="paragraph">
+<p>The <code>IdentityStore</code> interface is intended primarily for use by the <code>HttpAuthenticationMechanism</code> (also specified in the Jakarta Security), but can be used by other implementations such as a JASPIC <code>ServerAuthModule</code> or a container&#8217;s built-in authentication mechanisms.
+Using the <code>HttpAuthenticationMechanism</code> and <code>IdentityStore</code> implementations, both built-in and custom, provides a significant advantage over the BASIC and FORM mechanisms defined by Servlet 5.0 (and previous versions) and configured declaratively using <code>&lt;login-config&gt;</code> in <code>web.xml</code>, because it allows an application to control the identity stores it will authenticate against in a standard, portable way.</p>
+</div>
+<div class="paragraph">
+<p>An application can provide its own <code>IdentityStore</code>, or use the built in LDAP or Database identity store implementations of the interface.
+For details about the <code>IdentityStore</code> interfaces and examples of their usage, see <a href="#_overview_of_the_identity_store_interfaces">[_overview_of_the_identity_store_interfaces]</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

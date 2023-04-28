@@ -23,4 +23,7 @@ ui:
         static_files:
         - .nojekyll
     - path: .nojekyll
-
+output:
+  destinations:
+    - provider: fs
+      path: ./docs

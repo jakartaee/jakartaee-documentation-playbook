@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to Security in the Jakarta EE Platform :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakarta-ee-docs" data-version="10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">Jakarta EE Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="security-intro.html">Introduction to Security in the Jakarta EE Platform</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-webtier/security-webtier.html">Getting Started Securing Web Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-jakartaee/security-jakartaee.html">Getting Started Securing Enterprise Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-api/security-api.html">Using Jakarta Security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../security-advanced/security-advanced.html">Jakarta EE Security: Advanced Topics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta EE Documentation</span>
+    <span class="version">10</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Jakarta EE Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">10</a>
+        </li>
+        <li class="version">
+          <a href="../../../9/index.html">9</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">Jakarta EE Documentation</a></li>
+    <li>Security</li>
+    <li><a href="security-intro.html">Introduction to Security in the Jakarta EE Platform</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">10</button>
+  <div class="version-menu">
+    <a class="version is-current" href="security-intro.html">10</a>
+    <a class="version" href="../../../9/security/security-intro/security-intro.html">9</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="file:///Users/kito/Core/Projects/eclipse.refresh.jakarta.ee.tutorial/vcs/jakartaee-tutorial/src/main/docs/modules/security/pages/security-intro/security-intro.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to Security in the Jakarta EE Platform</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter introduces basic security concepts and security mechanisms.
+More information on these concepts and mechanisms can be found in the chapter on security in the Jakarta EE 9 specification.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_jakarta_security"><a class="anchor" href="#_overview_of_jakarta_security"></a>Overview of Jakarta Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Updated for Jakarta EE 10 😁.</p>
+</div>
+<div class="paragraph">
+<p>Every enterprise that has either sensitive resources that can be accessed by many users or resources that traverse unprotected, open networks, such as the Internet, needs to be protected.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise tier and web tier applications are made up of components that are deployed into various containers.
+These components are combined to build a multitier enterprise application.
+Security for components is provided by their containers.
+A container provides two kinds of security: declarative and programmatic.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Declarative security expresses an application component&#8217;s security requirements by using either deployment descriptors or annotations.</p>
+<div class="paragraph">
+<p>A deployment descriptor is an XML file that is external to the application and that expresses an application&#8217;s security structure, including security roles, access control, and authentication requirements.
+For more information about deployment descriptors, read <a href="#_using_deployment_descriptors_for_declarative_security">Using Deployment Descriptors for Declarative Security</a>.</p>
+</div>
+<div class="paragraph">
+<p>Annotations, also called metadata, are used to specify information about security within a class file.
+When the application is deployed, this information can be either used by or overridden by the application deployment descriptor.
+Annotations save you from having to write declarative information inside XML descriptors.
+Instead, you simply put annotations on the code, and the required information gets generated.
+For this tutorial, annotations are used for securing applications wherever possible.
+For more information about annotations, see
+<a href="#_using_annotations_to_specify_security_information">Using Annotations to Specify Security Information</a>.</p>
+</div>
+</li>
+<li>
+<p>Programmatic security is embedded in an application and is used to make security decisions.
+Programmatic security is useful when declarative security alone is not sufficient to express the security model of an application.
+For more information about programmatic security, read <a href="#_using_programmatic_security">Using Programmatic Security</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Jakarta EE 9 includes a Security API specification that defines portable, plug-in interfaces for authentication and identity stores, and a new injectable-type <code>SecurityContext</code> interface that provides an access point for programmatic security.
+You can use the built-in implementations of these APIs, or define custom implementations.</p>
+</div>
+<div class="paragraph">
+<p>More information on these concepts and mechanisms can be found in the chapter on security in the Jakarta EE 9 specification.</p>
+</div>
+<div class="paragraph">
+<p>Other chapters in this Part discuss security requirements in web tier and enterprise tier applications, and the Jakarta Security.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#getting-started-securing-web-applications">[getting-started-securing-web-applications]</a> explains how to add security to web components, such as servlets.</p>
+</li>
+<li>
+<p><a href="#getting-started-securing-enterprise-applications">[getting-started-securing-enterprise-applications]</a> explains how to add security to Jakarta EE components, such as enterprise beans and application clients.</p>
+</li>
+<li>
+<p><a href="#using-jakarta-security">[using-jakarta-security]</a> describes the authentication and credential validation funtionality provided by Jakarta Security, and provides examples.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_a_simple_application_security_walkthrough"><a class="anchor" href="#_a_simple_application_security_walkthrough"></a>A Simple Application Security Walkthrough</h3>
+<div class="paragraph">
+<p>The security behavior of a Jakarta EE environment may be better understood by examining what happens in a simple application with a web client, a user interface, and enterprise bean business logic.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, which is taken from the Jakarta EE Specification, the web client relies on the web server to act as its authentication proxy by collecting user authentication data from the client and using it to establish an authenticated session.</p>
+</div>
+<div class="sect3">
+<h4 id="_step_1_initial_request"><a class="anchor" href="#_step_1_initial_request"></a>Step 1: Initial Request</h4>
+<div class="paragraph">
+<p>In the first step of this example, the web client requests the main application URL.
+This action is shown in <a href="#_initial_request">Initial Request</a>.</p>
+</div>
+<div id="_initial_request" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_039.svg" alt="Diagram of initial request from web client to web server for access to a protected resource">
+</div>
+<div class="title">Figure 1. Initial Request</div>
+</div>
+<div class="paragraph">
+<p>Since the client has not yet authenticated itself to the application environment, the server responsible for delivering the web portion of the application, hereafter referred to as the web server, detects this and invokes the appropriate authentication mechanism for this resource.
+For more information on these mechanisms, see <a href="#_security_mechanisms">Security Mechanisms</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_2_initial_authentication"><a class="anchor" href="#_step_2_initial_authentication"></a>Step 2: Initial Authentication</h4>
+<div class="paragraph">
+<p>The web server returns a form that the web client uses to collect authentication data, such as user name and password, from the user.
+The web client forwards the authentication data to the web server, where it is validated by the web server, as shown in <a href="#_initial_authentication">Initial Authentication</a>.
+The validation mechanism may be local to a server or may leverage the underlying security services.
+On the basis of the validation, the web server sets a credential for the user.</p>
+</div>
+<div id="_initial_authentication" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_040.svg" alt="Diagram of initial authentication: server sends form to client, which sends authentication data to server for validation">
+</div>
+<div class="title">Figure 2. Initial Authentication</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_3_url_authorization"><a class="anchor" href="#_step_3_url_authorization"></a>Step 3: URL Authorization</h4>
+<div class="paragraph">
+<p>The credential is used for future determinations of whether the user is authorized to access restricted resources it may request.
+The web server consults the security policy associated with the web resource to determine the security roles that are permitted access to the resource.
+The security policy is derived from annotations or from the deployment descriptor.
+The web container then tests the user&#8217;s credential against each role to determine whether it can map the user to the role.
+<a href="#_url_authorization">URL Authorization</a> shows this process.</p>
+</div>
+<div id="_url_authorization" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_041.svg" alt="Diagram of URL authorization">
+</div>
+<div class="title">Figure 3. URL Authorization</div>
+</div>
+<div class="paragraph">
+<p>The web server&#8217;s evaluation stops with an "is authorized" outcome when the web server is able to map the user to a role.
+A "not authorized" outcome is reached if the web server is unable to map the user to any of the permitted roles.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_4_fulfilling_the_original_request"><a class="anchor" href="#_step_4_fulfilling_the_original_request"></a>Step 4: Fulfilling the Original Request</h4>
+<div class="paragraph">
+<p>If the user is authorized, the web server returns the result of the original URL request, as shown in <a href="#_fulfilling_the_original_request">Fulfilling the Original Request</a>.</p>
+</div>
+<div id="_fulfilling_the_original_request" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_042.svg" alt="Diagram of request fulfillment, showing server returning result to client">
+</div>
+<div class="title">Figure 4. Fulfilling the Original Request</div>
+</div>
+<div class="paragraph">
+<p>In our example, the response URL of a web page is returned, enabling the user to post form data that needs to be handled by the business-logic component of the application.
+See <a href="../security-webtier/security-webtier.html" class="xref page">Getting Started Securing Web Applications</a> for more information on protecting web applications.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_5_invoking_enterprise_bean_business_methods"><a class="anchor" href="#_step_5_invoking_enterprise_bean_business_methods"></a>Step 5: Invoking Enterprise Bean Business Methods</h4>
+<div class="paragraph">
+<p>The web page performs the remote method call to the enterprise bean, using the user&#8217;s credential to establish a secure association between the web page and the enterprise bean, as shown in <a href="#_invoking_an_enterprise_bean_business_method">Invoking an Enterprise Bean Business Method</a>.
+The association is implemented as two related security contexts: one in the web server and one in the enterprise bean container.</p>
+</div>
+<div id="_invoking_an_enterprise_bean_business_method" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_043.svg" alt="Diagram of authorization process between web component and enterprise bean">
+</div>
+<div class="title">Figure 5. Invoking an Enterprise Bean Business Method</div>
+</div>
+<div class="paragraph">
+<p>The enterprise container is responsible for enforcing access control on the enterprise bean method.
+The container consults the security policy associated with the enterprise bean to determine the security roles that are permitted access to the method.
+The security policy is derived from annotations or from the deployment descriptor.
+For each role, the enterprise bean container determines whether it can map the caller to the role by using the security context associated with the call.</p>
+</div>
+<div class="paragraph">
+<p>The container&#8217;s evaluation stops with an "is authorized" outcome when the container is able to map the caller&#8217;s credential to a role.
+A "not authorized" outcome is reached if the container is unable to map the caller to any of the permitted roles.
+A "not authorized" result causes an exception to be thrown by the container and propagated back to the calling web page.</p>
+</div>
+<div class="paragraph">
+<p>If the call is authorized, the container dispatches control to the enterprise bean method.
+The result of the bean&#8217;s execution of the call is returned to the web page and ultimately to the user by the web server and the web client.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_features_of_a_security_mechanism"><a class="anchor" href="#_features_of_a_security_mechanism"></a>Features of a Security Mechanism</h3>
+<div class="paragraph">
+<p>A properly implemented security mechanism will provide the following functionality:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent unauthorized access to application functions and business or personal data (authentication)</p>
+</li>
+<li>
+<p>Hold system users accountable for operations they perform (non-repudiation)</p>
+</li>
+<li>
+<p>Protect a system from service interruptions and other breaches that affect quality of service</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ideally, properly implemented security mechanisms will also be</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy to administer</p>
+</li>
+<li>
+<p>Transparent to system users</p>
+</li>
+<li>
+<p>Interoperable across application and enterprise boundaries</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_characteristics_of_application_security"><a class="anchor" href="#_characteristics_of_application_security"></a>Characteristics of Application Security</h3>
+<div class="paragraph">
+<p>Jakarta EE applications consist of components that can contain both protected and unprotected resources.
+Often, you need to protect resources to ensure that only authorized users have access.
+Authorization provides controlled access to protected resources.
+Authorization is based on identification and authentication.
+Identification is a process that enables recognition of an entity by a system, and authentication is a process that verifies the identity of a user, device, or other entity in a computer system, usually as a prerequisite to allowing access to resources in a system.</p>
+</div>
+<div class="paragraph">
+<p>Authorization and authentication are not required for an entity to access unprotected resources.
+Accessing a resource without authentication is referred to as unauthenticated, or anonymous, access.</p>
+</div>
+<div class="paragraph">
+<p>The characteristics of application security that, when properly addressed, help to minimize the security threats faced by an enterprise include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication: The means by which communicating entities, such as client and server, prove to each other that they are acting on behalf of specific identities that are authorized for access.
+This ensures that users are who they say they are.</p>
+</li>
+<li>
+<p>Authorization, or access control: The means by which interactions with resources are limited to collections of users or programs for the purpose of enforcing integrity, confidentiality, or availability constraints.
+This ensures that users have permission to perform operations or access data.</p>
+</li>
+<li>
+<p>Data integrity: The means used to prove that information has not been modified by a third party, an entity other than the source of the information.
+For example, a recipient of data sent over an open network must be able to detect and discard messages that were modified after they were sent.
+This ensures that only authorized users can modify data.</p>
+</li>
+<li>
+<p>Confidentiality, or data privacy: The means used to ensure that information is made available only to users who are authorized to access it.
+This ensures that only authorized users can view sensitive data.</p>
+</li>
+<li>
+<p>Non-repudiation: The means used to prove that a user who performed some action cannot reasonably deny having done so.
+This ensures that transactions can be proved to have happened.</p>
+</li>
+<li>
+<p>Quality of Service: The means used to provide better service to selected network traffic over various technologies.</p>
+</li>
+<li>
+<p>Auditing: The means used to capture a tamper-resistant record of security-related events for the purpose of being able to evaluate the effectiveness of security policies and mechanisms.
+To enable this, the system maintains a record of transactions and security information.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_mechanisms"><a class="anchor" href="#_security_mechanisms"></a>Security Mechanisms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The characteristics of an application should be considered when deciding the layer and type of security to be provided for applications.
+The following sections discuss the characteristics of the common mechanisms that can be used to secure Jakarta EE applications.
+Each of these mechanisms can be used individually or with others to provide protection layers based on the specific needs of your implementation.</p>
+</div>
+<div class="sect2">
+<h3 id="_java_se_security_mechanisms"><a class="anchor" href="#_java_se_security_mechanisms"></a>Java SE Security Mechanisms</h3>
+<div class="paragraph">
+<p>Java SE provides support for a variety of security features and mechanisms.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java Authentication and Authorization Service (JAAS) is a set of APIs that enable services to authenticate and enforce access controls upon users.
+JAAS provides a pluggable and extensible framework for programmatic user authentication and authorization.
+JAAS is a core Java SE API and is an underlying technology for Jakarta EE security mechanisms.</p>
+</li>
+<li>
+<p>Java Generic Security Services (Java GSS-API) is a token-based API used to securely exchange messages between communicating applications.
+The GSS-API offers application programmers uniform access to security services atop a variety of underlying security mechanisms, including Kerberos.</p>
+</li>
+<li>
+<p>Java Cryptography Extension (JCE) provides a framework and implementations for encryption, key generation and key agreement, and Message Authentication Code (MAC) algorithms.
+Support for encryption includes symmetric, asymmetric, block, and stream ciphers.
+Block ciphers operate on groups of bytes; stream ciphers operate on one byte at a time.
+The software also supports secure streams and sealed objects.</p>
+</li>
+<li>
+<p>Java Secure Sockets Extension (JSSE) provides a framework and an implementation for a Java version of the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes functionality for data encryption, server authentication, message integrity, and optional client authentication to enable secure Internet communications.</p>
+</li>
+<li>
+<p>Simple Authentication and Security Layer (SASL) is an Internet standard (RFC 2222) that specifies a protocol for authentication and optional establishment of a security layer between client and server applications.
+SASL defines how authentication data is to be exchanged but does not itself specify the contents of that data.
+SASL is a framework into which specific authentication mechanisms that specify the contents and semantics of the authentication data can fit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Java SE also provides a set of tools for managing keystores, certificates, and policy files; generating and verifying JAR signatures; and obtaining, listing, and managing Kerberos tickets.</p>
+</div>
+<div class="paragraph">
+<p>For more information on Java SE security, visit <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/security/</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_ee_security_mechanisms"><a class="anchor" href="#_jakarta_ee_security_mechanisms"></a>Jakarta EE Security Mechanisms</h3>
+<div class="paragraph">
+<p>Jakarta EE security services are provided by the component container and can be implemented by using declarative or programmatic techniques (see <a href="#__securing_containers">[__securing_containers]</a>).
+Jakarta EE security services provide a robust and easily configured security mechanism for authenticating users and authorizing access to application functions and associated data at many different layers.
+Jakarta EE security services are separate from the security mechanisms of the operating system.</p>
+</div>
+<div class="sect3">
+<h4 id="_application_layer_security"><a class="anchor" href="#_application_layer_security"></a>Application-Layer Security</h4>
+<div class="paragraph">
+<p>In Jakarta EE, component containers are responsible for providing application-layer security, security services for a specific application type tailored to the needs of the application.
+At the application layer, application firewalls can be used to enhance application protection by protecting the communication stream and all associated application resources from attacks.</p>
+</div>
+<div class="paragraph">
+<p>Jakarta Security is easy to implement and configure and can offer fine-grained access control to application functions and data.
+However, as is inherent to security applied at the application layer, security properties are not transferable to applications running in other environments and protect data only while it is residing in the application environment.
+In the context of a traditional enterprise application, this is not necessarily a problem, but when applied to a web services application, in which data often travels across several intermediaries, you would need to use the Jakarta EE security mechanisms along with transport-layer security and message-layer security for a complete security solution.</p>
+</div>
+<div class="paragraph">
+<p>The advantages of using application-layer security include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Security is uniquely suited to the needs of the application.</p>
+</li>
+<li>
+<p>Security is fine grained, with application-specific settings.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The disadvantages of using application-layer security include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The application is dependent on security attributes that are not transferable between application types.</p>
+</li>
+<li>
+<p>Support for multiple protocols makes this type of security vulnerable.</p>
+</li>
+<li>
+<p>Data is close to or contained within the point of vulnerability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information on providing security at the application layer, see <a href="#_securing_containers">Securing Containers</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_transport_layer_security"><a class="anchor" href="#_transport_layer_security"></a>Transport-Layer Security</h4>
+<div class="paragraph">
+<p>Transport-layer security is provided by the transport mechanisms used to transmit information over the wire between clients and providers; thus, transport-layer security relies on secure HTTP transport (HTTPS) using Secure Sockets Layer (SSL).
+Transport security is a point-to-point security mechanism that can be used for authentication, message integrity, and confidentiality.
+When running over an SSL-protected session, the server and client can authenticate each other and negotiate an encryption algorithm and cryptographic keys before the application protocol transmits or receives its first byte of data.
+Security is active from the time the data leaves the client until it arrives at its destination, or vice versa, even across intermediaries.
+The problem is that the data is not protected once it gets to the destination.
+One solution is to encrypt the message before sending.</p>
+</div>
+<div class="paragraph">
+<p>Transport-layer security is performed in a series of phases, as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The client and server agree on an appropriate algorithm.</p>
+</li>
+<li>
+<p>A key is exchanged using public-key encryption and certificate-based authentication.</p>
+</li>
+<li>
+<p>A symmetric cipher is used during the information exchange.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Digital certificates are necessary when running HTTPS using SSL.
+The HTTPS service of most web servers will not run unless a digital certificate has been installed.
+Digital certificates have already been created for GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>The advantages of using transport-layer security include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is relatively simple, well-understood, standard technology.</p>
+</li>
+<li>
+<p>It applies to both a message body and its attachments.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The disadvantages of using transport-layer security include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is tightly coupled with the transport-layer protocol.</p>
+</li>
+<li>
+<p>It represents an all-or-nothing approach to security.
+This implies that the security mechanism is unaware of message contents, so that you cannot selectively apply security to portions of the message as you can with message-layer security.</p>
+</li>
+<li>
+<p>Protection is transient.
+The message is protected only while in transit.
+Protection is removed automatically by the endpoint when it receives the message.</p>
+</li>
+<li>
+<p>It is not an end-to-end solution, simply point-to-point.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information on transport-layer security, see <a href="#_establishing_a_secure_connection_using_ssl">Establishing a Secure Connection Using SSL</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_message_layer_security"><a class="anchor" href="#_message_layer_security"></a>Message-Layer Security</h4>
+<div class="paragraph">
+<p>In message-layer security, security information is contained within the SOAP message and/or SOAP message attachment, which allows security information to travel along with the message or attachment.
+For example, a portion of the message may be signed by a sender and encrypted for a particular receiver.
+When sent from the initial sender, the message may pass through intermediate nodes before reaching its intended receiver.
+In this scenario, the encrypted portions continue to be opaque to any intermediate nodes and can be decrypted only by the intended receiver.
+For this reason, message-layer security is also sometimes referred to as end-to-end security.</p>
+</div>
+<div class="paragraph">
+<p>The advantages of message-layer security include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Security stays with the message over all hops and after the message arrives at its destination.</p>
+</li>
+<li>
+<p>Security can be selectively applied to different portions of a message and, if using XML Web Services Security, to attachments.</p>
+</li>
+<li>
+<p>Message security can be used with intermediaries over multiple hops.</p>
+</li>
+<li>
+<p>Message security is independent of the application environment or transport protocol.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The disadvantage of using message-layer security is that it is relatively complex and adds some overhead to processing.</p>
+</div>
+<div class="paragraph">
+<p>GlassFish Server supports message security using Metro, a web services stack that uses Web Services Security (WSS) to secure messages.
+Because this message security is specific to Metro and is not a part of the Jakarta EE platform, this tutorial does not discuss using WSS to secure messages.
+See the Metro User&#8217;s Guide at <a href="https://eclipse-ee4j.github.io/metro-jax-ws/" class="bare" target="_blank" rel="noopener">https://eclipse-ee4j.github.io/metro-jax-ws/</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_pluggable_providers"><a class="anchor" href="#_using_pluggable_providers"></a>Using Pluggable Providers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jakarta EE includes two specifications that define SPI interfaces for pluggable security providers, Jakarta Authentication and Jakarta Security.
+These specifications are described in more detail in the following sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_jakarta_authentication">Jakarta Authentication</a></p>
+</li>
+<li>
+<p><a href="#_jakarta_security_2">[_jakarta_security_2]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_authentication"><a class="anchor" href="#_jakarta_authentication"></a>Jakarta Authentication</h3>
+<div class="paragraph">
+<p>Jakarta Authentication defines a model for securing messages sent between a client and server in which the sender of a message "secures" it, and the receiver "validates" it.
+The details of how messages are secured and validated are undefined by the model; support for securing and validating particular types of messages is provided by "auth modules"&#8201;&#8212;&#8201;implementations of the Authentication <code>ClientAuthModule</code> and <code>ServerAuthModule</code> interfaces&#8201;&#8212;&#8201;that support particular protocols or message types, and that plug in to the Authentication framework.
+(Note that it is not necessary for a client and server to both use Authentication, as long as both sides process messages correctly for a given protocol.)</p>
+</div>
+<div class="paragraph">
+<p>Authentication defines two "profiles" for integrating Authentication auth modules into Jakarta EE containers: the Servlet Container Profile, and the SOAP Profile.
+Each specifies how Authentication message processing must be integrated into the request processing flow of the container in question to validate incoming requests and secure outgoing responses.</p>
+</div>
+<div class="paragraph">
+<p>In the case of the Servlet Container Profile, if a <code>ServerAuthModule</code> is configured/available for a given application context, then the modules&#8217;s <code>validateRequest()</code> method must be invoked (and succeed) before authorizing access and calling the target servlet, and the module&#8217;s <code>secureResponse()</code> method must be called before returning a response.
+Typically, a <code>ServerAuthModule</code> written for the Servlet Container Profile looks for user credentials or tokens in an incoming request, and then uses them to authenticate the caller and establish the caller&#8217;s identity.
+A <code>ServerAuthModule</code> may also engage in a challenge/response protocol with the client, or negotiate with a third party to establish/verify the client&#8217;s identity.</p>
+</div>
+<div class="paragraph">
+<p>As with the Servlet Container Profile, the SOAP Profile requires that <code>validateRequest()</code> be called and succeed before proceeding to authorize access and perform any further processing of an incoming message, and that <code>secureResponse()</code> is called for the response before it is sent.
+In contrast to the Servlet Container Profile, <code>validateRequest()</code> processing for SOAP messages typically involves verifying signatures on signed elements, decrypting encrypted elements, and/or establishing the identity of a SOAP actor based on a token included in the message, while <code>secureResponse()</code> typically involves signing and/or encrypting elements of the outbound message.</p>
+</div>
+<div class="paragraph">
+<p>Authentication does not define any standard or built-in ServerAuthModules; they must be provided either by the application using the module, or as a non-standard extension of a particular vendor&#8217;s Jakarta EE product.
+ServerAuthModules can sometimes be directly configured for an application in a vendor-specific way, but the standard mechanism for making a <code>ServerAuthModule</code> available to an application is to register a corresponding <code>AuthConfigProvider</code> with the global <code>AuthConfigFactory</code>.
+An <code>AuthConfigProvider</code> makes a <code>ServerAuthModule</code> available to the container, via a series of intermediary objects, for runtime message processing.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jakarta_security"><a class="anchor" href="#_jakarta_security"></a>Jakarta Security</h3>
+<div class="paragraph">
+<p>Jakarta Security defines the following authentication-related plugin SPIs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HttpAuthenticationMechanism</code> - An interface for modules that authenticate callers to a web application.
+It defines three methods that correspond to the methods of a Authentication <code>ServerAuthModule</code>, albeit with slightly different signatures.
+An <code>HttpAuthenticationMechanism</code> provides similar functionality to a <code>ServerAuthModule</code>, and the Servlet Container uses a special <code>ServerAuthModule</code> to invoke the HttpAuthenticationMechanism&#8217;s methods, but HttpAuthenticationMechanisms are simpler to write, and to deploy, than are ServerAuthModules.</p>
+</li>
+<li>
+<p><code>IdentityStore</code> - This interface defines methods for validating a caller&#8217;s credentials (such as username and password) and returning group membership information.
+IdentityStores are invoked under the control of an <code>IdentityStoreHandler</code>, which, if multiple IdentityStores are present, calls the available IdentityStores in a specific order and aggregates the results.</p>
+</li>
+<li>
+<p><code>RememberMeIdentityStore</code> - This interface is a variation on the <code>IdentityStore</code> interface, intended specifically to address cases where an authenticated user&#8217;s identity should be remembered for an extended period of time, so that the caller can return to the application periodically without needing to present primary authentication credentials each time.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Implementations of these SPI interfaces are CDI beans, and, as such, applications can provide implementations that support application-specific authentication mechanisms, or validate user credentials against application-specific identity stores, simply by including them in a bean archive that is part of the deployed application.
+There are also several standard, built-in implementations of <code>HttpAuthenticationMechanism</code> and <code>IdentityStore</code> that provide configurable support for common authentication and credential validation use cases, without the need to write custom implementations.</p>
+</div>
+<div class="paragraph">
+<p>Because these SPIs, related annotations, and the CDI deployment mechanism are all part of standard Jakarta EE, implementations are completely portable (to the extent they do not rely internally on platform-specific APIs or libraries) and can be portably deployed to any Jakarta EE server.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_securing_containers"><a class="anchor" href="#_securing_containers"></a>Securing Containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Jakarta EE, the component containers are responsible for providing application security.
+A container provides two types of security: declarative and programmatic.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_annotations_to_specify_security_information"><a class="anchor" href="#_using_annotations_to_specify_security_information"></a>Using Annotations to Specify Security Information</h3>
+<div class="paragraph">
+<p>Annotations enable a declarative style of programming and so encompass both the declarative and programmatic security concepts.
+Users can specify information about security within a class file by using annotations.
+GlassFish Server uses this information when the application is deployed.
+Not all security information can be specified by using annotations, however.
+Some information must be specified in the application deployment descriptors.</p>
+</div>
+<div class="paragraph">
+<p>Specific annotations that can be used to specify security information within an enterprise bean class file are described in <a href="#_securing_an_enterprise_bean_using_declarative_security">[_securing_an_enterprise_bean_using_declarative_security]</a>.
+<a href="#getting-started-securing-web-applications">[getting-started-securing-web-applications]</a>, describes how to use annotations to secure web applications where possible.
+Deployment descriptors are described only where necessary.</p>
+</div>
+<div class="paragraph">
+<p>For more information on annotations, see <a href="#_further_information_about_security">Further Information about Security</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_deployment_descriptors_for_declarative_security"><a class="anchor" href="#_using_deployment_descriptors_for_declarative_security"></a>Using Deployment Descriptors for Declarative Security</h3>
+<div class="paragraph">
+<p>Declarative security can express an application component&#8217;s security requirements by using deployment descriptors.
+Because deployment descriptor information is declarative, it can be changed without the need to modify the source code.
+At runtime, the Jakarta EE server reads the deployment descriptor and acts upon the corresponding application, module, or component accordingly.
+Deployment descriptors must provide certain structural information for each component if this information has not been provided in annotations or is not to be defaulted.</p>
+</div>
+<div class="paragraph">
+<p>This part of the tutorial does not document how to create deployment descriptors; it describes only the elements of the deployment descriptor relevant to security.
+NetBeans IDE provides tools for creating and modifying deployment descriptors.</p>
+</div>
+<div class="paragraph">
+<p>Different types of components use different formats, or schemas, for their deployment descriptors.
+The security elements of deployment descriptors discussed in this tutorial include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web components may use a web application deployment descriptor named <code>web.xml</code>.</p>
+<div class="paragraph">
+<p>The schema for web component deployment descriptors is provided in Chapter 14 of the Jakarta Servlet 5.0 specification, which can be downloaded from <a href="https://jakarta.ee/specifications/servlet/5.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0/</a>.</p>
+</div>
+</li>
+<li>
+<p>Jakarta Enterprise Beans components may use an enterprise bean deployment descriptor named <code>META-INF/ejb-jar.xml</code>, contained in the enterprise bean JAR file.</p>
+<div class="paragraph">
+<p>The schema for enterprise bean deployment descriptors is provided in Chapter 13 of the Jakarta Enterprise Beans 4.0 Core Contracts and Requirements Specification, which can be downloaded from <a href="https://jakarta.ee/specifications/enterprise-beans/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/enterprise-beans/4.0/</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_programmatic_security"><a class="anchor" href="#_using_programmatic_security"></a>Using Programmatic Security</h3>
+<div class="paragraph">
+<p>Programmatic security is embedded in an application and is used to make security decisions.
+Programmatic security is useful when declarative security alone is not sufficient to express the security model of an application.
+The API for programmatic security consists of methods of the Jakarta Security <code>SecurityContext</code> interface, and methods of the enterprise bean <code>EJBContext</code> interface and the servlet <code>HttpServletRequest</code> interface.
+These methods allow components to make business-logic decisions based on the security role of the caller or remote user.</p>
+</div>
+<div class="paragraph">
+<p>Programmatic security is discussed in more detail in the following sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_using_programmatic_security_with_web_applications">[_using_programmatic_security_with_web_applications]</a></p>
+</li>
+<li>
+<p><a href="#_securing_an_enterprise_bean_programmatically">[_securing_an_enterprise_bean_programmatically]</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_securing_glassfish_server"><a class="anchor" href="#_securing_glassfish_server"></a>Securing GlassFish Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes deployment to GlassFish Server, which provides highly secure, interoperable, and distributed component computing based on the Jakarta EE security model.
+GlassFish Server supports the Jakarta EE 9 security model.
+You can configure GlassFish Server for the following purposes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding, deleting, or modifying authorized users.
+For more information on this topic, see <a href="#_working_with_realms_users_groups_and_roles">Working with Realms, Users, Groups, and Roles</a>.</p>
+</li>
+<li>
+<p>Configuring secure HTTP and Internet Inter-Orb Protocol (IIOP) listeners.</p>
+</li>
+<li>
+<p>Configuring secure Java Management Extensions (JMX) connectors.</p>
+</li>
+<li>
+<p>Adding, deleting, or modifying existing or custom realms.</p>
+</li>
+<li>
+<p>Defining an interface for pluggable authorization providers using Jakarta Authorization.
+Jakarta Authorization defines security contracts between GlassFish Server and authorization policy modules.
+These contracts specify how the authorization providers are installed, configured, and used in access decisions.</p>
+</li>
+<li>
+<p>Using pluggable audit modules.</p>
+</li>
+<li>
+<p>Customizing authentication mechanisms.
+All implementations of Jakarta EE 9 compatible web containers are required to support the Servlet Profile of Jakarta Authentication, which offers an avenue for customizing the authentication mechanism applied by the web container on behalf of one or more applications.</p>
+</li>
+<li>
+<p>Setting and changing policy permissions for an application.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_working_with_identity_stores"><a class="anchor" href="#_working_with_identity_stores"></a>Working with Identity Stores</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An identity store is a database or directory (store) that contains identity information about a collection of users that includes an application&#8217;s callers.
+An identity store holds callers names, group membership information, and information sufficient to allow it to validate a caller&#8217;s credentials.
+An identity store may also contain other information, such as globally unique caller identifiers or other caller attributes.</p>
+</div>
+<div class="paragraph">
+<p>As specified in the Jakarta EE Security API, the <code>IdentityStore</code> interface provides an abstraction of an identity store.
+Implementations of the <code>IdentityStore</code> interface interact with identity stores to authenticate users and to retrieve caller group information.
+Most often, an implementation of the <code>IdentityStore</code> interface interacts with an external identity store, such as an LDAP server, but it can also manage user account data itself.</p>
+</div>
+<div class="paragraph">
+<p>The <code>IdentityStore</code> interface is intended primarily for use by the <code>HttpAuthenticationMechanism</code> (also specified in the Jakarta Security), but can be used by other implementations such as a JASPIC <code>ServerAuthModule</code> or a container&#8217;s built-in authentication mechanisms.
+Using the <code>HttpAuthenticationMechanism</code> and <code>IdentityStore</code> implementations, both built-in and custom, provides a significant advantage over the BASIC and FORM mechanisms defined by Servlet 5.0 (and previous versions) and configured declaratively using <code>&lt;login-config&gt;</code> in <code>web.xml</code>, because it allows an application to control the identity stores it will authenticate against in a standard, portable way.</p>
+</div>
+<div class="paragraph">
+<p>An application can provide its own <code>IdentityStore</code>, or use the built in LDAP or Database identity store implementations of the interface.
+For details about the <code>IdentityStore</code> interfaces and examples of their usage, see <a href="#_overview_of_the_identity_store_interfaces">[_overview_of_the_identity_store_interfaces]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_working_with_realms_users_groups_and_roles"><a class="anchor" href="#_working_with_realms_users_groups_and_roles"></a>Working with Realms, Users, Groups, and Roles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You often need to protect resources to ensure that only authorized users have access.
+See <a href="#_characteristics_of_application_security">Characteristics of Application Security</a> for an introduction to the concepts of authentication, identification, and authorization.</p>
+</div>
+<div class="paragraph">
+<p>This section discusses setting up users so that they can be correctly identified and either given access to protected resources or denied access if they are not authorized to access the protected resources.
+To authenticate a user, you need to follow these basic steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The application developer writes code to prompt for a user name and password.
+The various methods of authentication are discussed in <a href="#_specifying_authentication_mechanisms">[_specifying_authentication_mechanisms]</a>.</p>
+</li>
+<li>
+<p>The application developer communicates how to set up security for the deployed application by use of a metadata annotation or deployment descriptor.
+This step is discussed in <a href="#_setting_up_security_roles">Setting Up Security Roles</a>.</p>
+</li>
+<li>
+<p>The server administrator sets up authorized users and groups in GlassFish Server.
+This is discussed in <a href="#_managing_users_and_groups_in_glassfish_server">Managing Users and Groups in GlassFish Server</a>.</p>
+</li>
+<li>
+<p>The application deployer maps the application&#8217;s security roles to users, groups, and principals defined in GlassFish Server.
+This topic is discussed in <a href="#_mapping_roles_to_users_and_groups_2">Mapping Roles to Users and Groups</a>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default, group principal names are mapped to roles of the same name.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_what_are_realms_users_groups_and_roles"><a class="anchor" href="#_what_are_realms_users_groups_and_roles"></a>What Are Realms, Users, Groups, and Roles?</h3>
+<div class="paragraph">
+<p>A realm is a security policy domain defined for a web or application server.
+A realm contains a collection of users, who may or may not be assigned to a group.
+Managing users in GlassFish Server is discussed in <a href="#_managing_users_and_groups_in_glassfish_server">Managing Users and Groups in GlassFish Server</a>.</p>
+</div>
+<div class="paragraph">
+<p>An application will often prompt for a user name and password before allowing access to a protected resource.
+After the user name and password have been entered, that information is passed to the server, which either authenticates the user and sends the protected resource or does not authenticate the user, in which case access to the protected resource is denied.
+This type of user authentication is discussed in <a href="#_specifying_an_authentication_mechanism_in_the_deployment_descriptor">[_specifying_an_authentication_mechanism_in_the_deployment_descriptor]</a>.</p>
+</div>
+<div class="paragraph">
+<p>In some applications, authorized users are assigned to roles.
+In this situation, the role assigned to the user in the application must be mapped to a principal or group defined on the application server.
+<a href="#_mapping_roles_to_users_and_groups">Mapping Roles to Users and Groups</a> shows this.
+More information on mapping roles to users and groups can be found in <a href="#_setting_up_security_roles">Setting Up Security Roles</a>.</p>
+</div>
+<div id="_mapping_roles_to_users_and_groups" class="imageblock">
+<div class="content">
+<img src="../../images/_images/jakartaeett_dt_044.svg" alt="Diagram of role mapping, showing creation of users and groups, definition of roles, and mapping of roles to users and groups">
+</div>
+<div class="title">Figure 6. Mapping Roles to Users and Groups</div>
+</div>
+<div class="paragraph">
+<p>The following sections provide more information on realms, users, groups, and roles.</p>
+</div>
+<div class="sect3">
+<h4 id="_what_is_a_realm"><a class="anchor" href="#_what_is_a_realm"></a>What Is a Realm?</h4>
+<div class="paragraph">
+<p>The protected resources on a server can be partitioned into a set of protection spaces, each with its own authentication scheme and/or authorization database containing a collection of users and groups.
+A realm is a complete database of users and groups identified as valid users of one or more applications and controlled by the same authentication policy.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE server authentication service can govern users in multiple realms.
+The <code>file</code>, <code>admin-realm</code>, and <code>certificate</code> realms come preconfigured for GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>file</code> realm, the server stores user credentials locally in a file named <code>keyfile</code>.
+You can use the Administration Console to manage users in the <code>file</code> realm.
+When using the <code>file</code> realm, the server authentication service verifies user identity by checking the <code>file</code> realm.
+This realm is used for the authentication of all clients except for web browser clients that use HTTPS and certificates.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>certificate</code> realm, the server stores user credentials in a certificate database.
+When using the <code>certificate</code> realm, the server uses certificates with HTTPS to authenticate web clients.
+To verify the identity of a user in the <code>certificate</code> realm, the authentication service verifies an X.509 certificate.
+For step-by-step instructions for creating this type of certificate, see <a href="#_working_with_digital_certificates">[_working_with_digital_certificates]</a>.
+The common name field of the X.509 certificate is used as the principal name.</p>
+</div>
+<div class="paragraph">
+<p>The <code>admin-realm</code> is also a <code>file</code> realm and stores administrator user credentials locally in a file named <code>admin-keyfile</code>.
+You can use the Administration Console to manage users in this realm in the same way you manage users in the <code>file</code> realm.
+For more information, see <a href="#_managing_users_and_groups_in_glassfish_server">Managing Users and Groups in GlassFish Server</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_what_is_a_user"><a class="anchor" href="#_what_is_a_user"></a>What Is a User?</h4>
+<div class="paragraph">
+<p>A user is an individual or application program identity that has been defined in GlassFish Server.
+In a web application, a user can have associated with that identity a set of roles that entitle the user to access all resources protected by those roles.
+Users can be associated with a group.</p>
+</div>
+<div class="paragraph">
+<p>A Jakarta EE user is similar to an operating system user.
+Typically, both types of users represent people.
+However, these two types of users are not the same.
+The Jakarta EE server authentication service has no knowledge of the user name and password you provide when you log in to the operating system.
+The Jakarta EE server authentication service is not connected to the security mechanism of the operating system.
+The two security services manage users that belong to different realms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_what_is_a_group"><a class="anchor" href="#_what_is_a_group"></a>What Is a Group?</h4>
+<div class="paragraph">
+<p>A group is a set of authenticated users, classified by common traits, defined in GlassFish Server.
+A Jakarta EE user of the <code>file</code> realm can belong to a group in GlassFish Server.
+(A user in the <code>certificate</code> realm cannot.)
+A group in GlassFish Server is a category of users classified by common traits, such as job title or customer profile.
+For example, most customers of an e-commerce application might belong to the <code>CUSTOMER</code> group, but the big spenders would belong to the <code>PREFERRED</code> group.
+Categorizing users into groups makes it easier to control the access of large numbers of users.</p>
+</div>
+<div class="paragraph">
+<p>A group in GlassFish Server has a different scope from a role.
+A group is designated for the entire GlassFish Server, whereas a role is associated only with a specific application in GlassFish Server.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_what_is_a_role"><a class="anchor" href="#_what_is_a_role"></a>What Is a Role?</h4>
+<div class="paragraph">
+<p>A role is an abstract name for the permission to access a particular set of resources in an application.
+A role can be compared to a key that can open a lock.
+Many people might have a copy of the key.
+The lock doesn&#8217;t care who you are, only that you have the right key.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_some_other_terminology"><a class="anchor" href="#_some_other_terminology"></a>Some Other Terminology</h4>
+<div class="paragraph">
+<p>The following terminology is also used to describe the security requirements of the Jakarta EE platform.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A principal is an entity that can be authenticated by an authentication protocol in a security service that is deployed in an enterprise.
+A principal is identified by using a principal name and authenticated by using authentication data.</p>
+</li>
+<li>
+<p>A security policy domain, also known as a security domain or realm, is a scope over which a common security policy is defined and enforced by the security administrator of the security service.</p>
+</li>
+<li>
+<p>Security attributes are a set of attributes associated with every principal.
+The security attributes have many uses: for example, access to protected resources and auditing of users.
+Security attributes can be associated with a principal by an authentication protocol.</p>
+</li>
+<li>
+<p>A credential is an object that contains or references security attributes used to authenticate a principal for Jakarta EE services.
+A principal acquires a credential upon authentication or from another principal that allows its credential to be used.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_managing_users_and_groups_in_glassfish_server"><a class="anchor" href="#_managing_users_and_groups_in_glassfish_server"></a>Managing Users and Groups in GlassFish Server</h3>
+<div class="paragraph">
+<p>Follow these steps for managing users before you run the tutorial examples.</p>
+</div>
+<div class="sect3">
+<h4 id="_to_add_users_to_glassfish_server"><a class="anchor" href="#_to_add_users_to_glassfish_server"></a>To Add Users to GlassFish Server</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start GlassFish Server, if you haven&#8217;t already done so.</p>
+<div class="paragraph">
+<p>Information on starting GlassFish Server is available in <a href="#_starting_and_stopping_glassfish_server">[_starting_and_stopping_glassfish_server]</a>.</p>
+</div>
+</li>
+<li>
+<p>Start the Administration Console, if you haven&#8217;t already done so.</p>
+<div class="paragraph">
+<p>To start the Administration Console, open a web browser and specify the URL <a href="http://localhost:4848/" class="bare" target="_blank" rel="noopener">http://localhost:4848/</a>.
+If you changed the default Admin port during installation, enter the correct port number in place of <code>4848</code>.</p>
+</div>
+</li>
+<li>
+<p>In the navigation tree, expand the Configurations node, then expand the server-config node.</p>
+</li>
+<li>
+<p>Expand the Security node.</p>
+</li>
+<li>
+<p>Expand the Realms node.</p>
+</li>
+<li>
+<p>Select the realm to which you are adding users.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the <code>file</code> realm to add users you want to access applications running in this realm.</p>
+<div class="paragraph">
+<p>For the example security applications, select the <code>file</code> realm.</p>
+</div>
+</li>
+<li>
+<p>Select the <code>admin-realm</code> to add users you want to enable as system administrators of GlassFish Server.</p>
+<div class="paragraph">
+<p>You cannot add users to the <code>certificate</code> realm by using the Administration Console.
+In the <code>certificate</code> realm, you can add only certificates.
+For information on adding (importing) certificates to the <code>certificate</code> realm, see <a href="#_adding_users_to_the_certificate_realm">[_adding_users_to_the_certificate_realm]</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>On the Edit Realm page, click Manage Users.</p>
+</li>
+<li>
+<p>On the File Users or Admin Users page, click New to add a new user to the realm.</p>
+</li>
+<li>
+<p>On the New File Realm User page, enter values in the User ID, Group List, New Password, and Confirm New Password fields.</p>
+<div class="paragraph">
+<p>For the Admin Realm, the Group List field is read-only, and the group name is <code>asadmin</code>.
+Restart GlassFish Server and the Administration Console after you add a user to the Admin Realm.</p>
+</div>
+<div class="paragraph">
+<p>For more information on these properties, see <a href="#_working_with_realms_users_groups_and_roles">Working with Realms, Users, Groups, and Roles</a>.</p>
+</div>
+<div class="paragraph">
+<p>For the example security applications, specify a user with any name and password you like, but make sure that the user is assigned to the group <code>TutorialUser</code>.
+The user name and password are case-sensitive.
+Keep a record of the user name and password for working with the examples later in this tutorial.</p>
+</div>
+</li>
+<li>
+<p>Click OK to add this user to the realm, or click Cancel to quit without saving.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_security_roles"><a class="anchor" href="#_setting_up_security_roles"></a>Setting Up Security Roles</h3>
+<div class="paragraph">
+<p>When you design an enterprise bean or web component, you should always think about the kinds of users who will access the component.
+For example, a web application for a human resources department might have a different request URL for someone who has been assigned the role of <code>DEPT_ADMIN</code> than for someone who has been assigned the role of <code>DIRECTOR</code>.
+The <code>DEPT_ADMIN</code> role may let you view employee data, but the <code>DIRECTOR</code> role enables you to modify employee data, including salary data.
+Each of these security roles is an abstract logical grouping of users that is defined by the person who assembles the application.
+When an application is deployed, the deployer will map the roles to security identities in the operational environment, as shown in <a href="#_mapping_roles_to_users_and_groups">Mapping Roles to Users and Groups</a>.</p>
+</div>
+<div class="paragraph">
+<p>For Jakarta EE components, you define security roles using the <code>@DeclareRoles</code> and <code>@RolesAllowed</code> metadata annotations.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example of an application in which the role of <code>DEPT-ADMIN</code> is authorized for methods that review employee payroll data, and the role of <code>DIRECTOR</code> is authorized for methods that change employee payroll data.</p>
+</div>
+<div class="paragraph">
+<p>The enterprise bean would be annotated as shown in the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.annotation.security.DeclareRoles;
+import jakarta.annotation.security.RolesAllowed;
+...
+@DeclareRoles({"DEPT-ADMIN", "DIRECTOR"})
+@Stateless public class PayrollBean implements Payroll {
+    @Resource SessionContext ctx;
+
+
+    @RolesAllowed("DEPT-ADMIN")
+    public void reviewEmployeeInfo(EmplInfo info) {
+
+        oldInfo = ... read from database;
+
+        // ...
+    }
+
+    @RolesAllowed("DIRECTOR")
+    public void updateEmployeeInfo(EmplInfo info) {
+
+        newInfo = ... update database;
+
+        // ...
+    }
+    ...
+ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a servlet, you can use the <code>@HttpConstraint</code> annotation within the <code>@ServletSecurity</code> annotation to specify the roles that are allowed to access the servlet.
+For example, a servlet might be annotated as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet(name = "PayrollServlet", urlPatterns = {"/payroll"})
+@ServletSecurity(
+@HttpConstraint(transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+    rolesAllowed = {"DEPT-ADMIN", "DIRECTOR"}))
+public class GreetingServlet extends HttpServlet { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These annotations are discussed in more detail in <a href="#_specifying_security_for_basic_authentication_using_annotations">[_specifying_security_for_basic_authentication_using_annotations]</a> and <a href="#_securing_an_enterprise_bean_using_declarative_security">[_securing_an_enterprise_bean_using_declarative_security]</a>.</p>
+</div>
+<div class="paragraph">
+<p>After users have provided their login information and the application has declared what roles are authorized to access protected parts of an application, the next step is to map the security role to the name of a user, or principal.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mapping_roles_to_users_and_groups_2"><a class="anchor" href="#_mapping_roles_to_users_and_groups_2"></a>Mapping Roles to Users and Groups</h3>
+<div class="paragraph">
+<p>When you are developing a Jakarta EE application, you don&#8217;t need to know what categories of users have been defined for the realm in which the application will be run.
+In the Jakarta EE platform, the security architecture provides a mechanism for mapping the roles defined in the application to the users or groups defined in the runtime realm.</p>
+</div>
+<div class="paragraph">
+<p>The role names used in the application are often the same as the group names defined in GlassFish Server.
+Jakarta Security requires that group principal names are mapped to roles of the same name by default.
+Accordingly, the <strong>Default Principal To Role Mapping</strong> setting is enabled by default on the Security page of the GlassFish Server Administration Console.
+All the tutorial security examples use default principal-to-role mapping.
+With that setting enabled, if the group name defined on GlassFish Server matches the role name defined in the application, there is no need to use the runtime deployment descriptor to provide a mapping.
+The application server will implicitly make this mapping, as long as the names of the groups and roles match.</p>
+</div>
+<div class="paragraph">
+<p>If the role names used in an application are not the same as the group names defined on the server, use the runtime deployment descriptor to specify the mapping.
+The following example demonstrates how to do this mapping in the <code>glassfish-web.xml</code> file, which is the file used for web applications:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;glassfish-web-app&gt;
+    ...
+    &lt;security-role-mapping&gt;
+        &lt;role-name&gt;Mascot&lt;/role-name&gt;
+        &lt;principal-name&gt;Duke&lt;/principal-name&gt;
+    &lt;/security-role-mapping&gt;
+
+    &lt;security-role-mapping&gt;
+        &lt;role-name&gt;Admin&lt;/role-name&gt;
+        &lt;group-name&gt;Director&lt;/group-name&gt;
+    &lt;/security-role-mapping&gt;
+    ...
+&lt;/glassfish-web-app&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A role can be mapped to specific principals, specific groups, or both.
+The principal or group names must be valid principals or groups in the current default realm or in the realm specified in the <code>login-config</code> element.
+In this example, the role of <code>Mascot</code> used in the application is mapped to a principal, named <code>Duke</code>, that exists on the application server.
+Mapping a role to a specific principal is useful when the person occupying that role may change.
+For this application, you would need to modify only the runtime deployment descriptor rather than search and replace throughout the application for references to this principal.</p>
+</div>
+<div class="paragraph">
+<p>Also in this example, the role of <code>Admin</code> is mapped to a group of users assigned the group name of <code>Director</code>.
+This is useful because the group of people authorized to access director-level administrative data has to be maintained only in GlassFish Server.
+The application developer does not need to know who these people are, but only needs to define the group of people who will be given access to the information.</p>
+</div>
+<div class="paragraph">
+<p>The <code>role-name</code> must match the <code>role-name</code> in the <code>security-role</code> element of the corresponding deployment descriptor or the role name defined in a <code>@DeclareRoles</code> annotation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_establishing_a_secure_connection_using_ssl"><a class="anchor" href="#_establishing_a_secure_connection_using_ssl"></a>Establishing a Secure Connection Using SSL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Secure Sockets Layer (SSL) technology is security that is implemented at the transport layer (see <a href="#_transport_layer_security">Transport-Layer Security</a> for more information about transport-layer security).
+SSL allows web browsers and web servers to communicate over a secure connection.
+In this secure connection, the data is encrypted before being sent and then is decrypted upon receipt and before processing.
+Both the browser and the server encrypt all traffic before sending any data.</p>
+</div>
+<div class="paragraph">
+<p>SSL addresses the following important security considerations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication: During your initial attempt to communicate with a web server over a secure connection, that server will present your web browser with a set of credentials in the form of a server certificate (also called a public key certificate).
+The purpose of the certificate is to verify that the site is who and what it claims to be.
+In some cases, the server may request a certificate proving that the client is who and what it claims to be; this mechanism is known as client authentication.</p>
+</li>
+<li>
+<p>Confidentiality: When data is being passed between the client and the server on a network, third parties can view and intercept this data.
+SSL responses are encrypted so that the data cannot be deciphered by the third party and the data remains confidential.</p>
+</li>
+<li>
+<p>Integrity: When data is being passed between the client and the server on a network, third parties can view and intercept this data.
+SSL helps guarantee that the data will not be modified in transit by that third party.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The SSL protocol is designed to be as efficient as securely possible.
+However, encryption and decryption are computationally expensive processes from a performance standpoint.
+It is not strictly necessary to run an entire web application over SSL, and it is customary for a developer to decide which pages require a secure connection and which do not.
+Pages that might require a secure connection include those for login, personal information, shopping cart checkouts, or credit card information transmittal.
+Any page within an application can be requested over a secure socket by simply prefixing the address with <code>https:</code> instead of <code>http:</code>.
+Any pages that absolutely require a secure connection should check the protocol type associated with the page request and take the appropriate action if <code>https:</code> is not specified.</p>
+</div>
+<div class="paragraph">
+<p>Using name-based virtual hosts on a secured connection can be problematic.
+This is a design limitation of the SSL protocol itself.
+The SSL handshake, whereby the client browser accepts the server certificate, must occur before the HTTP request is accessed.
+As a result, the request information containing the virtual host name cannot be determined before authentication, and it is therefore not possible to assign multiple certificates to a single IP address.
+If all virtual hosts on a single IP address need to authenticate against the same certificate, the addition of multiple virtual hosts should not interfere with normal SSL operations on the server.
+Be aware, however, that most client browsers will compare the server&#8217;s domain name against the domain name listed in the certificate, if any; this is applicable primarily to official certificates signed by a certificate authority (CA).
+If the domain names do not match, these browsers will display a warning to the client.
+In general, only address-based virtual
+hosts are commonly used with SSL in a production environment.</p>
+</div>
+<div class="sect2">
+<h3 id="_verifying_and_configuring_ssl_support"><a class="anchor" href="#_verifying_and_configuring_ssl_support"></a>Verifying and Configuring SSL Support</h3>
+<div class="paragraph">
+<p>As a general rule, you must address the following issues to enable SSL for a server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There must be a <code>Connector</code> element for an SSL connector in the server deployment descriptor.</p>
+</li>
+<li>
+<p>There must be valid keystore and certificate files.</p>
+</li>
+<li>
+<p>The location of the keystore file and its password must be specified in the server deployment descriptor.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An SSL HTTPS connector is already enabled in GlassFish Server.</p>
+</div>
+<div class="paragraph">
+<p>For testing purposes and to verify that SSL support has been correctly installed, load the default introduction page with a URL that connects to the port defined in the server deployment descriptor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">https://localhost:8181/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>https</code> in this URL indicates that the browser should be using the SSL protocol.
+The <code>localhost</code> in this example assumes that you are running the example on your local machine as part of the development process.
+The <code>8181</code> in this example is the secure port that was specified where the SSL connector was created.
+If you are using a different server or port, modify this value accordingly.</p>
+</div>
+<div class="paragraph">
+<p>The first time that you load this application, the New Site Certificate or Security Alert dialog box appears.
+Click Next to move through the series of dialog boxes, and click Finish when you reach the last dialog box.
+The certificates will appear only the first time.
+When you accept the certificates, subsequent hits to this site assume that you still trust the content.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_further_information_about_security"><a class="anchor" href="#_further_information_about_security"></a>Further Information about Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about security in Jakarta EE applications, see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta EE 9 specification:<br>
+<a href="https://jakarta.ee/specifications/platform/9/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/platform/9/</a></p>
+</li>
+<li>
+<p>Jakarta Security 2.0:<br>
+<a href="https://jakarta.ee/specifications/security/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/security/2.0/</a></p>
+</li>
+<li>
+<p>Jakarta Authentication 2.0:<br>
+<a href="https://jakarta.ee/specifications/authentication/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/authentication/2.0/</a></p>
+</li>
+<li>
+<p>Jakarta Enterprise Beans 4.0 specification:<br>
+<a href="https://jakarta.ee/specifications/enterprise-beans/4.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/enterprise-beans/4.0/</a></p>
+</li>
+<li>
+<p>Jakarta Enterprise Web Services 2.0 specification:<br>
+<a href="https://jakarta.ee/specifications/enterprise-ws/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/enterprise-ws/2.0/</a></p>
+</li>
+<li>
+<p>Java SE security information:<br>
+<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/" class="bare" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/security/</a></p>
+</li>
+<li>
+<p>Jakarta Servlet 5.0 specification:<br>
+<a href="https://jakarta.ee/specifications/servlet/5.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/servlet/5.0/</a></p>
+</li>
+<li>
+<p>Jakarta Authorization 2.0 specification:<br>
+<a href="https://jakarta.ee/specifications/authorization/2.0/" class="bare" target="_blank" rel="noopener">https://jakarta.ee/specifications/authorization/2.0/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
