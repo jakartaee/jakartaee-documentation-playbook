@@ -9,7 +9,9 @@ content:
     branches:
       - antora-prototype-9.1
       - antora-prototype
-      -
+  - url: ../security
+    start_paths:
+      - /spec/src/main/antora
 urls:
   latest_version_segment: current
 
