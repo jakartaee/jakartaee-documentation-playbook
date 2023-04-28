@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Jakarta EE Documentation</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Jakarta EE Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jakarta-security-spec" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">Jakarta Security Specification</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../jakarta-ee-docs/current/index.html">Jakarta EE Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../jakarta-ee-docs/current/index.html">10</a>
+        </li>
+        <li class="version">
+          <a href="../../jakarta-ee-docs/9.1/index.html">9.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="security-spec.html">Jakarta Security Specification</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="security-spec.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../jakarta-ee-docs/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="file:///Users/kito/Core/Projects/eclipse.refresh.jakarta.ee.tutorial/vcs/security/spec/src/main/antora/modules/ROOT/pages/securityContext.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="security-context"><a class="anchor" href="#security-context"></a>Security Context</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes the main <em>SecurityContext</em> interface and contract and other context interfaces and their contract.</p>
+</div>
+<div class="sect2">
+<h3 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h3>
+<div class="paragraph">
+<p>The Jakarta EE platform defines a declarative security model for protecting application resources. The declared constraints on access are then enforced by the container. In some cases the declarative model is not sufficient; for example, when a combination of tests and constraints is needed that is more complex than the declarative model allows for. Programmatic security allows an application to perform tests and grant or deny access to resources.</p>
+</div>
+<div class="paragraph">
+<p>This specification provides an access point for programmatic security&#8201;&#8212;&#8201;a security context&#8201;&#8212;&#8201;represented by the <em>SecurityContext</em> interface.</p>
+</div>
+<div class="paragraph">
+<p>In this version of the specification, the <em>SecurityContext</em> MUST be available in the Servlet container and the enterprise beans container. Application servers MAY make <em>SecurityContext</em> available in other containers, but are NOT REQUIRED to.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retrieving_and_testing_for_caller_data"><a class="anchor" href="#_retrieving_and_testing_for_caller_data"></a>Retrieving and Testing for Caller Data</h3>
+<div class="paragraph">
+<p>The <em>SecurityContext</em> interface defines two methods that allow the application to test aspects of the caller data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Principal getCallerPrincipal();
+
+&lt;T extends Principal&gt; Set&lt;T&gt; getPrincipalsByType(Class&lt;T&gt; pType);
+
+boolean isCallerInRole(String role);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>getCallerPrincipal()</em> method retrieves the <em>Principal</em> representing the caller. This is the container-specific representation of the caller principal, and the type may differ from the type of the caller principal originally established by an <em>HttpAuthenticationMechanism</em>. This method returns null for an unauthenticated caller. (Note that this behavior differs from the behavior of <em>EJBContext.getCallerPrincipal()</em>, which, per Jakarta Enterprise Beans spec, version 3.2 [<a href="https://jakarta.ee/specifications/enterprise-beans/3.2/">JEB32</a>], returns a principal with a "product-specific unauthenticated principal name" to represent an unauthenticated caller.)</p>
+</div>
+<div class="paragraph">
+<p>The <em>getPrincipalsByType()</em> method retrieves all principals of the given type. This method can be used to retrieve an application-specific caller principal established during authentication. This method is primarily useful in the case that the container&#8217;s caller principal is a different type than the application caller principal, and the application needs specific information behavior available only from the application principal. This method returns an empty <em>Set</em> if the caller is unauthenticated, or if the requested type is not found.</p>
+</div>
+<div class="paragraph">
+<p>Where both a container caller principal and an application caller principal are present, the value returned by <em>getName()</em> MUST be the same for both principals.</p>
+</div>
+<div class="paragraph">
+<p>See the Chapter 1, "<a href="concepts.html#concepts" class="xref page">Concepts</a>", for more information on principal handling.</p>
+</div>
+<div class="paragraph">
+<p>The <em>isCallerInRole()</em> method takes a String argument that represents the role that is to be tested for. It is undefined by this specification how the role determination is made, but the result MUST be the same as if the corresponding container-specific call had been made (i.e., <em>HttpServletRequest.isUserInRole()</em>, <em>EJBContext.isCallerInRole()</em>), and MUST be consistent with the result implied by other specifications that prescribe role-mapping behavior.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_testing_for_access"><a class="anchor" href="#_testing_for_access"></a>Testing for Access</h3>
+<div class="paragraph">
+<p>The <em>SecurityContext</em> interface defines a method for programmatically testing access to a resource:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">boolean hasAccessToWebResource(String resource, String... methods);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>hasAccessToWebResource()</em> method determines if the caller has access to the specified web resource for the specified HTTP methods, as determined by the security constraints configured for the application. See section 13.8 of [<a href="https://jakarta.ee/specifications/servlet/6.0/">SERVLET60</a>] for a description of web application security constraints.</p>
+</div>
+<div class="paragraph">
+<p>The resource parameter is an <em>URLPatternSpec</em> that identifies an application-specific web resource. See the javadoc for more detail.</p>
+</div>
+<div class="paragraph">
+<p>This method can only be used to check access to resources in the current application&#8201;&#8212;&#8201;it cannot be called cross-application, or cross-container, to check access to resources in a different application.</p>
+</div>
+<div class="paragraph">
+<p>As an example, consider the following Servlet definition:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@WebServlet("/protectedServlet")
+@ServletSecurity(@HttpConstraint(rolesAllowed = "foo"))
+public class ProtectedServlet extends HttpServlet { ... }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the following call to <em>hasAccessToWebResource()</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">securityContext.hasAccessToWebResource("/protectedServlet", GET)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above <em>hasAccessToWebResource()</em> call would return true if and only if the caller is in role "foo".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_triggering_the_authentication_process"><a class="anchor" href="#_triggering_the_authentication_process"></a>Triggering the Authentication Process</h3>
+<div class="paragraph">
+<p>The <em>SecurityContext</em> interface defines a method that allows an application to programmatically trigger the authentication process:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">AuthenticationStatus authenticate(HttpServletRequest request,
+                        HttpServletResponse response,
+                        AuthenticationParameters parameters);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Programmatically triggering means that the container responds as if the caller had attempted to access a constrained resource. It causes the container to invoke the authentication mechanism configured for the application. If the configured authentication mechanism is an <em>HttpAuthenticationMechanism</em>, then the AuthenticationParameters argument is meaningful and extended capabilities of <em>HttpAuthenticationMechanism</em> are available. If not, the behavior and result is as if <em>HttpServletRequest.authenticate()</em> were called.</p>
+</div>
+<div class="paragraph">
+<p>The <em>authenticate()</em> method allows an application to signal to the container that it should start the authentication process with the caller. This method requires a <em>HttpServletRequest</em> and <em>HttpServletResponse</em> parameters to be passed in, and can therefore only be used in a valid Servlet context.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relationship_to_other_specifications"><a class="anchor" href="#_relationship_to_other_specifications"></a>Relationship to Other Specifications</h3>
+<div class="paragraph">
+<p>The <em>SecurityContext</em> implementation is a CDI bean, as defined by [<a href="https://jakarta.ee/specifications/cdi/4.0/">CDI40</a>].</p>
+</div>
+<div class="paragraph">
+<p>Various specifications in Jakarta EE provide similar or even identical methods to those provided be the <em>SecurityContext</em>. It is the intention of this specification to eventually supersede those methods and provide a cross-specification, platform alternative. The following gives an overview:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Servlet - <em>HttpServletRequest#getUserPrincipal</em>, <em>HttpServletRequest#isUserInRole</em></p>
+</li>
+<li>
+<p>Enterprise Beans - <em>EJBContext#getCallerPrincipal</em>, <em>EJBContext#isCallerInRole</em></p>
+</li>
+<li>
+<p>XML Web Services - <em>WebServiceContext#getUserPrincipal</em>, <em>WebServiceContext#isUserInRole</em></p>
+</li>
+<li>
+<p>RESTful Web Services - <em>SecurityContext#getUserPrincipal</em>, <em>SecurityContext#isUserInRole</em></p>
+</li>
+<li>
+<p>Server Faces - <em>ExternalContext#getUserPrincipal</em>, <em>ExternalContext#isUserInRole</em></p>
+</li>
+<li>
+<p>Contexts and Dependency Injection - <em>@Inject Principal</em></p>
+</li>
+<li>
+<p>WebSocket - <em>Session#getUserPrincipal</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_context_interfaces"><a class="anchor" href="#_other_context_interfaces"></a>Other context interfaces</h3>
+<div class="sect3">
+<h4 id="_openidcontext"><a class="anchor" href="#_openidcontext"></a>OpenIdContext</h4>
+<div class="paragraph">
+<p>An implementation must provide a CDI bean for the <code>OpenIdContext</code> interface with scope <code>SessionScoped</code>. This bean is used to programmatically access data received from an OpenID Connect Provider when the OpenID Connect authentication mechanism (via the <a href="#OpenID Connect Annotation">[OpenID Connect Annotation]</a>) has been used to authenticate the caller.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
