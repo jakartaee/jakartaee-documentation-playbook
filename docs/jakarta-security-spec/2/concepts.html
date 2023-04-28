@@ -48,13 +48,13 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="jakarta-security-spec" data-version="3">
+<div class="nav-container" data-component="jakarta-security-spec" data-version="2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-explore is-active" data-panel="explore">
   <div class="context">
     <span class="title">Jakarta Security Specification</span>
-    <span class="version">3</span>
+    <span class="version">2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -69,13 +69,13 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="security-spec.html">Jakarta Security Specification</a>
+      <a class="title" href="../current/security-spec.html">Jakarta Security Specification</a>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="security-spec.html">3</a>
+        <li class="version is-latest">
+          <a href="../current/security-spec.html">3</a>
         </li>
-        <li class="version">
-          <a href="../2/security-spec.html">2</a>
+        <li class="version is-current">
+          <a href="security-spec.html">2</a>
         </li>
       </ul>
     </li>
@@ -91,14 +91,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2</button>
   <div class="version-menu">
-    <a class="version is-current" href="concepts.html">3</a>
-    <a class="version" href="../2/concepts.html">2</a>
+    <a class="version" href="../current/concepts.html">3</a>
+    <a class="version is-current" href="concepts.html">2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/virtua-tech/security/edit/master/spec/src/main/antora/modules/ROOT/pages/concepts.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/kito/Core/Projects/eclipse.refresh.jakarta.ee.tutorial/vcs/security/spec/src/main/antora/modules/ROOT/pages/concepts.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -197,20 +197,19 @@ LdapIdentityStoreDefinition
 BasicAuthenticationMechanismDefinition
 CustomFormAuthenticationMechanismDefinition
 FormAuthenticationMechanismDefinition
-OpenIdAuthenticationMechanismDefinition
 
 LoginToContinue
 RememberMe</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Attributes on these annotations, as well as on the annotations referenced from them, can be provided either as actual values, or as Jakarta Expression Language 5.0 expressions. In cases where the return type of an attribute is not String, an "Expression Language alternative" attribute is provided, with "Expression" appended to the name. If an "Expression Language alternative" attribute has a non-empty value, it takes precedence over the attribute it&#8217;s an alternative to, and must contain a valid Expression Language expression that evaluates to the same type as the attribute it&#8217;s an alternative to.</p>
+<p>Attributes on these annotations can be provided either as actual values, or as Jakarta Expression Language 3.0 expressions. In cases where the return type of an attribute is not String, an "Expression Language alternative" attribute is provided, with "Expression" appended to the name. If an "Expression Language alternative" attribute has a non-empty value, it takes precedence over the attribute it&#8217;s an alternative to, and must contain a valid Expression Language expression that evaluates to the same type as the attribute it&#8217;s an alternative to.</p>
 </div>
 <div class="paragraph">
 <p>For more information, see the package javadoc for the jakarta.security.enterprise package.</p>
 </div>
 <div class="paragraph">
-<p>Jakarta Expression Language, version 5.0 [<a href="https://jakarta.ee/specifications/expression-language/5.0/">EL50</a>] is a Jakarta EE specification.</p>
+<p>Jakarta Expression Language, version 3.0 [<a href="https://jakarta.ee/specifications/expression-language/3.0/">EL30</a>] is a Jakarta EE specification.</p>
 </div>
 </div>
 </div>

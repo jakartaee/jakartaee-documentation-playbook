@@ -12,6 +12,9 @@ content:
   - url: ../security
     start_paths:
       - /spec/src/main/antora
+    branches:
+      - master
+      - 2.x
 urls:
   latest_version_segment: current
 

@@ -48,13 +48,13 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="jakarta-security-spec" data-version="3">
+<div class="nav-container" data-component="jakarta-security-spec" data-version="2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-explore is-active" data-panel="explore">
   <div class="context">
     <span class="title">Jakarta Security Specification</span>
-    <span class="version">3</span>
+    <span class="version">2</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -69,13 +69,13 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="security-spec.html">Jakarta Security Specification</a>
+      <a class="title" href="../current/security-spec.html">Jakarta Security Specification</a>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="security-spec.html">3</a>
+        <li class="version is-latest">
+          <a href="../current/security-spec.html">3</a>
         </li>
-        <li class="version">
-          <a href="../2/security-spec.html">2</a>
+        <li class="version is-current">
+          <a href="security-spec.html">2</a>
         </li>
       </ul>
     </li>
@@ -91,14 +91,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2</button>
   <div class="version-menu">
-    <a class="version is-current" href="securityContext.html">3</a>
-    <a class="version" href="../2/securityContext.html">2</a>
+    <a class="version" href="../current/securityContext.html">3</a>
+    <a class="version is-current" href="securityContext.html">2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/virtua-tech/security/edit/master/spec/src/main/antora/modules/ROOT/pages/securityContext.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/kito/Core/Projects/eclipse.refresh.jakarta.ee.tutorial/vcs/security/spec/src/main/antora/modules/ROOT/pages/securityContext.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -108,7 +108,7 @@
 <h2 id="security-context"><a class="anchor" href="#security-context"></a>Security Context</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter describes the main <em>SecurityContext</em> interface and contract and other context interfaces and their contract.</p>
+<p>This chapter describes the <em>SecurityContext</em> interface and contract.</p>
 </div>
 <div class="sect2">
 <h3 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h3>
@@ -163,7 +163,7 @@ boolean isCallerInRole(String role);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <em>hasAccessToWebResource()</em> method determines if the caller has access to the specified web resource for the specified HTTP methods, as determined by the security constraints configured for the application. See section 13.8 of [<a href="https://jakarta.ee/specifications/servlet/6.0/">SERVLET60</a>] for a description of web application security constraints.</p>
+<p>The <em>hasAccessToWebResource()</em> method determines if the caller has access to the specified web resource for the specified HTTP methods, as determined by the security constraints configured for the application. See section 13.8 of [<a href="https://jakarta.ee/specifications/servlet/4.0/">SERVLET40</a>] for a description of web application security constraints.</p>
 </div>
 <div class="paragraph">
 <p>The resource parameter is an <em>URLPatternSpec</em> that identifies an application-specific web resource. See the javadoc for more detail.</p>
@@ -215,7 +215,7 @@ public class ProtectedServlet extends HttpServlet { ... }</code></pre>
 <div class="sect2">
 <h3 id="_relationship_to_other_specifications"><a class="anchor" href="#_relationship_to_other_specifications"></a>Relationship to Other Specifications</h3>
 <div class="paragraph">
-<p>The <em>SecurityContext</em> implementation is a CDI bean, as defined by [<a href="https://jakarta.ee/specifications/cdi/4.0/">CDI40</a>].</p>
+<p>The <em>SecurityContext</em> implementation is a CDI bean, as defined by [<a href="https://jakarta.ee/specifications/cdi/2.0/">CDI20</a>].</p>
 </div>
 <div class="paragraph">
 <p>Various specifications in Jakarta EE provide similar or even identical methods to those provided be the <em>SecurityContext</em>. It is the intention of this specification to eventually supersede those methods and provide a cross-specification, platform alternative. The following gives an overview:</p>
@@ -244,15 +244,6 @@ public class ProtectedServlet extends HttpServlet { ... }</code></pre>
 <p>WebSocket - <em>Session#getUserPrincipal</em></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_other_context_interfaces"><a class="anchor" href="#_other_context_interfaces"></a>Other context interfaces</h3>
-<div class="sect3">
-<h4 id="_openidcontext"><a class="anchor" href="#_openidcontext"></a>OpenIdContext</h4>
-<div class="paragraph">
-<p>An implementation must provide a CDI bean for the <code>OpenIdContext</code> interface with scope <code>SessionScoped</code>. This bean is used to programmatically access data received from an OpenID Connect Provider when the OpenID Connect authentication mechanism (via the <a href="#OpenID Connect Annotation">[OpenID Connect Annotation]</a>) has been used to authenticate the caller.</p>
-</div>
 </div>
 </div>
 </div>
