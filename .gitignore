@@ -1,2 +1,7 @@
 /.idea/
 *.iml
+/node/node
+/node/npm
+/node/npm.cmd
+/node/npx
+/node/npx.cmd
