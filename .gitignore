@@ -1,7 +1,6 @@
 /.idea/
+/target/
 *.iml
-/node/node
-/node/npm
-/node/npm.cmd
-/node/npx
-/node/npx.cmd
+/node/
+/node_modules
+
