@@ -5,17 +5,15 @@ site:
 content:
   # branches will be updated when PRs are merged
   sources:
-  - url: ../jakartaee-tutorial
+  - url: https://github.com/virtua-tech/jakartaee-tutorial-playbook.git
     start_path: /src/main/docs
     branches:
       - antora-prototype-9.1
       - antora-prototype
-  - url: ../jakartaee-tutorial
-    start_path: /src/main/docs
+  - url: https://github.com/virtua-tech/jakartaee-tutorial-playbook.git
     branches:
       - feature/JETUT-21_migrate_release_8_to_antora
-    start_paths:
-      - /src/main/antora
+    start_path: /src/main/antora
 urls:
   latest_version_segment: current
 
