@@ -7,7 +7,7 @@ To build, run:
 mvn clean verify
 ```
 
-The output will be in `target/generated-docs`. To view, just open file://<project dir>/target/generated-docs/index.html.
+The output will be in `target/generated-docs`. To view, just open `target/generated-docs/index.html` in a browser.
 
 ## Author Mode
 
@@ -18,3 +18,5 @@ Once you've created this file, you can use the `author-mode` Maven profile:
 ```
 mvn compile -Pauthor-mode
 ```
+
+The output will still be in the same location, but it'll be generated from your local clone of the repos instead of the remote.
