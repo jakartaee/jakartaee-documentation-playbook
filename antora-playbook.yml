@@ -3,18 +3,19 @@ site:
   start_page: jakarta-ee-docs::index.adoc
 
 content:
+  # branches will be updated when PRs are merged
   sources:
   - url: ../jakartaee-tutorial
     start_path: /src/main/docs
     branches:
       - antora-prototype-9.1
       - antora-prototype
-  - url: ../security
-    start_paths:
-      - /spec/src/main/antora
+  - url: ../jakartaee-tutorial
+    start_path: /src/main/docs
     branches:
-      - master
-      - 2.x
+      - feature/JETUT-21_migrate_release_8_to_antora
+    start_paths:
+      - /src/main/antora
 urls:
   latest_version_segment: current
 
@@ -22,13 +23,3 @@ ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
-#  supplemental_files:
-#    - path: ui.yml
-#      contents: |
-#        static_files:
-#        - .nojekyll
-#    - path: .nojekyll
-#output:
-#  destinations:
-#    - provider: fs
-#      path: ./target/generated-docs
