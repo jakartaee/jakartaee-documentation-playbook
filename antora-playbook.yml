@@ -22,7 +22,7 @@ urls:
 
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: https://github.com/virtua-tech/jakartaee-tutorial-ui/releases/download/0.1/ui-bundle.zip
     snapshot: true
 
 runtime:
