@@ -1,7 +1,18 @@
-/.idea/
-/target/
+# IntelliJ
+/.idea
 *.iml
-/node/
-/node_modules
-local-antora-playbook.yml
 
+# Eclipse
+/.settings
+*.classpath
+*.project
+
+# Maven
+/target
+
+# NodeJS
+/node
+/node_modules
+
+# Project specific
+local-antora-playbook.yml
