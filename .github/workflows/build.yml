@@ -39,11 +39,11 @@ jobs:
 #    if: github.ref == 'refs/heads/main'
     steps:
       - name: Create Artifact
-        uses: actions/upload-artifact@v1.0.8
+        uses: actions/upload-artifact@v1
         with:
           path: target/generated-docs
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2.01
+        uses: actions/deploy-pages@v2
 
 
 
