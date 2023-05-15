@@ -25,6 +25,12 @@ jobs:
       - id: build
         name: Build Docs
         run: mvn -B clean verify
+      - id: create-gh-pages-artifact
+        name: Create Artifact
+        #    if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: target/generated-docs
   deploy:
     name: Deploy Docs to GitHub Pages
     runs-on: ubuntu-latest
@@ -41,11 +47,6 @@ jobs:
 
 #    if: github.ref == 'refs/heads/main'
     steps:
-      - id: create-artifact
-        name: Create Artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: target/generated-docs
       - id: deployment
         name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
