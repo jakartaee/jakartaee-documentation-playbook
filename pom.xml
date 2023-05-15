@@ -109,25 +109,6 @@
                     </filesets>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-publish-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <id>deploy-site</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>publish-scm</goal>
-                        </goals>
-                        <configuration>
-                            <scmBranch>gh-pages</scmBranch>
-                            <skipDeletedFiles>false</skipDeletedFiles>
-                            <checkinComment>Update site</checkinComment>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <profiles>
