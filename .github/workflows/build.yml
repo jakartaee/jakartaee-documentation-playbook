@@ -22,7 +22,7 @@ jobs:
       - name: Build Docs
         run: mvn -B clean verify
       - name: Deploy Docs to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+#         if: github.ref == 'refs/heads/main'
         run: mvn -B deploy
 
 
