@@ -1,2 +1,7 @@
 /.idea/
+/target/
 *.iml
+/node/
+/node_modules
+local-antora-playbook.yml
+

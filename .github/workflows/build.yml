@@ -1,0 +1,22 @@
+name: build
+
+on:
+  push:
+    branches: [ master, release/* ]
+  pull_request:
+    branches: [ master, release/* ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: maven
+      - name: Build Docs
+        run: mvn -B clean verify
