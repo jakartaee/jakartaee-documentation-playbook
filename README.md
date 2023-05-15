@@ -1,6 +1,10 @@
 # jakartaee-tutorial-playbook
 Root repo for building the Jakarta EE Tutorial site (from different repos).
 
+Issue tracker: https://virtua.atlassian.net/jira/software/c/projects/JETUT/issues
+
+Wiki: https://virtua.atlassian.net/wiki/spaces/JETR/overview
+
 To build, run:
 
 ```
@@ -20,3 +24,5 @@ mvn compile -Pauthor-mode
 ```
 
 The output will still be in the same location, but it'll be generated from your local clone of the repos instead of the remote.
+=======
+
