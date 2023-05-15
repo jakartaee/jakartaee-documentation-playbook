@@ -21,3 +21,8 @@ jobs:
           cache: maven
       - name: Build Docs
         run: mvn -B clean verify
+      - name: Deploy Docs
+        run: mvn -B deploy
+        if:
+          branch = main || branch = release/*
+
