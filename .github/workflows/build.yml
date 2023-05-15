@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - id: checkout
@@ -27,12 +27,13 @@ jobs:
         run: mvn -B clean verify
       - id: create-gh-pages-artifact
         name: Create Artifact
-        #    if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v1
         with:
           path: target/generated-docs
   deploy:
-    name: Deploy Docs to GitHub Pages
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -45,7 +46,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-#    if: github.ref == 'refs/heads/main'
     steps:
       - id: deployment
         name: Deploy to GitHub Pages
