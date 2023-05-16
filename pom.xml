@@ -91,7 +91,8 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <arguments>antora generate --to-dir ${antora.output.folder} ${antora.playbook}</arguments>
+                            <!-- fetch really should be made conditional, since it slows down the build. -->
+                            <arguments>antora generate --fetch --to-dir ${antora.output.folder} ${antora.playbook}</arguments>
                         </configuration>
                     </execution>
                 </executions>
