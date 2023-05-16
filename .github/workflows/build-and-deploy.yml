@@ -31,6 +31,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: target/generated-docs
+
   deploy:
     name: Deploy to GitHub Pages
     if: github.event == 'push'
