@@ -15,7 +15,7 @@
 /node_modules
 
 # Ruby
-/.bundle
+/.bundle/gems
 /build
 
 # Project specific
