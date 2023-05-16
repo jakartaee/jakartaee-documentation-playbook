@@ -28,3 +28,7 @@ ui:
 runtime:
   log:
     level: debug
+
+antora:
+  extensions:
+  - '@antora/lunr-extension'
