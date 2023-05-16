@@ -16,7 +16,6 @@
 
 # Ruby
 /.bundle/gems
-/build
 
 # Project specific
 local-antora-playbook.yml
