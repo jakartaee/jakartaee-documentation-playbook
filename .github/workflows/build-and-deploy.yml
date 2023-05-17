@@ -16,7 +16,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
 
-      - id: install-jdk
+      - id: setup-jdk
         name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -24,20 +24,22 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - id: install-ruby
+      - id: setup-ruby
         name: Set up Ruby 3.0
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
 
-      - id: build
+      - id: install-asciidoctor-pdf
+        name: Install asciidoctor-pdf
+        run: gem install asciidoctor-pdf
+
+      - id: build-docs
         name: Build Docs
-        run: |
-          gem install asciidoctor-pdf
-          mvn -B clean package
+        run: mvn -B clean package
 
       - id: create-gh-pages-artifact
-        name: Create Artifact
+        name: Create GitHub Pages Artifact
         if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v1
         with:
