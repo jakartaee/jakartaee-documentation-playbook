@@ -5,15 +5,44 @@ Root repo for building the Jakarta EE Tutorial site (from different repos).
 - Issue tracker: https://virtua.atlassian.net/jira/software/c/projects/JETUT/issues
 - Wiki: https://virtua.atlassian.net/wiki/spaces/JETR/overview
 
+## Prerequisites
+
+- [JDK](https://jdk.java.net/)
+- [Maven](https://maven.apache.org/)
+- [Ruby](https://rvm.io/)
+
+## Setup
+
+JDK and Maven speak for themselves.
+
+Ruby, [read the instructions](https://rvm.io/rvm/install) to install "RVM stable". Summarized:
+
+```bash
+gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+source ~/.rvm/scripts/rvm
+gem install asciidoctor-pdf
+```
+
 ## Building
 
 To build, run:
 
-```
+```bash
 mvn clean package
 ```
 
-The output will be in `target/generated-docs`. To view, just open `target/generated-docs/index.html` in a browser.
+The output will be in `target/generated-docs`. To view, just open [`target/generated-docs/index.html`](target/generated-docs/index.html) in a browser.
+
+If you face a build failure with the following log entry as the last one before the failure,
+
+> [INFO] {"level":"fatal","time":1684333903235,"name":"antora","hint":"Add the --stacktrace option to see the cause of the error.","msg":"Command not found: asciidoctor-pdf"}
+
+Then you need to run beforehand:
+
+```bash
+source ~/.rvm/scripts/rvm
+```
 
 ### Author Mode
 
@@ -23,7 +52,7 @@ Read [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/play
 
 Once you've created the `local-antora-playbook.yml` file, you can use the `author-mode` Maven profile:
 
-```
+```bash
 mvn compile -Pauthor-mode
 ```
 

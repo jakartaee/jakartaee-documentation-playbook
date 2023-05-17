@@ -53,58 +53,8 @@
             <url>scm:git:git@github.com:virtua-tech/jakartaee-tutorial-playbook.git</url>
         </site>
     </distributionManagement>
-    <repositories>
-        <repository>
-            <id>mavengems</id>
-            <url>mavengem:https://rubygems.org</url>
-        </repository>
-    </repositories>
-    <dependencies>
-        <dependency>
-            <groupId>rubygems</groupId>
-            <artifactId>asciidoctor-pdf</artifactId>
-            <version>2.3.7</version>
-            <type>gem</type>
-            <exclusions>
-                <exclusion>
-                    <groupId>rubygems</groupId>
-                    <artifactId>css_parser</artifactId> 
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.torquebox.mojo</groupId>
-                <artifactId>mavengem-wagon</artifactId>
-                <version>1.0.3</version>
-            </extension>
-        </extensions>
         <plugins>
-            <plugin>
-                <groupId>de.saumya.mojo</groupId>
-                <artifactId>gem-maven-plugin</artifactId>
-                <version>2.0.1</version>
-                <executions>
-                    <execution>
-                        <id>install asciidoctor-pdf</id>
-                        <goals>
-                            <goal>initialize</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>execute asciidoctor-pdf</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <jrubyVerbose>true</jrubyVerbose>
-                            <args>gem install asciidoctor-pdf</args>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
