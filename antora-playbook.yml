@@ -22,7 +22,7 @@ urls:
 
 ui:
   bundle:
-    url: https://github.com/virtua-tech/jakartaee-tutorial-ui/releases/download/draft/ui-bundle.zip
+    url: https://github.com/virtua-tech/jakartaee-tutorial-ui/releases/download/latest/ui-bundle.zip
     snapshot: true
 
 runtime:
