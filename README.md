@@ -15,12 +15,17 @@ Root repo for building the Jakarta EE Tutorial site (from different repos).
 
 JDK and Maven speak for themselves.
 
-Ruby, [read the instructions](https://rvm.io/rvm/install) to install "RVM stable". Summarized:
+Ruby, if `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable". Summarized:
 
 ```bash
 gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
+```
+
+And finally install the [`asciidoctor-pdf`](https://rubygems.org/gems/asciidoctor-pdf) gem:
+
+```bash
 gem install asciidoctor-pdf
 ```
 
@@ -43,6 +48,8 @@ Then you need to run beforehand:
 ```bash
 source ~/.rvm/scripts/rvm
 ```
+
+Or to make sure this is executed every time you open a new terminal.
 
 ### Author Mode
 
