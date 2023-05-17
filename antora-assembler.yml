@@ -1,4 +1,4 @@
 root_level: 0
 component_versions: '**'
 build:
-  dir: target/generated-docs
+  dir: target/antora-assembler
