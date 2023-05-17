@@ -32,7 +32,3 @@ The output will still be in the same location, but it'll be generated from your 
 ## Deploying
 
 This site is currently deployed via GitHub Pages via GitHub Actions. For details, see the [workflow file](.github/workflows/build-and-deploy.yml).
-
-
-
-

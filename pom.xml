@@ -65,6 +65,12 @@
             <artifactId>asciidoctor-pdf</artifactId>
             <version>2.3.7</version>
             <type>gem</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>rubygems</groupId>
+                    <artifactId>css_parser</artifactId> 
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
@@ -76,6 +82,29 @@
             </extension>
         </extensions>
         <plugins>
+            <plugin>
+                <groupId>de.saumya.mojo</groupId>
+                <artifactId>gem-maven-plugin</artifactId>
+                <version>2.0.1</version>
+                <executions>
+                    <execution>
+                        <id>install asciidoctor-pdf</id>
+                        <goals>
+                            <goal>initialize</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>execute asciidoctor-pdf</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <jrubyVerbose>true</jrubyVerbose>
+                            <args>gem install asciidoctor-pdf</args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -117,14 +146,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>de.saumya.mojo</groupId>
-                <artifactId>gem-maven-plugin</artifactId>
-                <version>2.0.1</version>
-                <configuration>
-                    <gemspec>maven-tools.gemspec</gemspec>
-                </configuration>
             </plugin>
             <plugin>
                 <!-- TODO: is this plugin absolutely necessary? The antora output folder is currently configured to be in /target already ... -->
