@@ -24,16 +24,17 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - id: install-asciidoctor-pdf
-        name: Install asciidoctor-pdf
+      - id: install-ruby
+        name: Set up Ruby 3.0
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
-        run: gem install asciidoctor-pdf
 
       - id: build
         name: Build Docs
-        run: mvn -B clean package
+        run: |
+          gem install asciidoctor-pdf
+          mvn -B clean package
 
       - id: create-gh-pages-artifact
         name: Create Artifact
@@ -62,6 +63,3 @@ jobs:
       - id: deployment
         name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-
-
-
