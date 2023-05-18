@@ -1,4 +1,5 @@
 site:
+  url: https://jakarta.ee
   title: Jakarta EE Documentation
   start_page: jakarta-ee-docs::index.adoc
 
