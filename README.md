@@ -15,7 +15,8 @@ Root repo for building the Jakarta EE Tutorial site (from different repos).
 
 JDK and Maven speak for themselves.
 
-Ruby, if `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable". Summarized:
+Ruby, if `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable".
+Summarized:
 
 ```bash
 gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -37,9 +38,10 @@ To build, run:
 mvn clean package
 ```
 
-The output will be in `target/generated-docs`. To view, just open [`target/generated-docs/index.html`](target/generated-docs/index.html) in a browser.
+The output will be in `target/generated-docs`.
+To view, just open [`target/generated-docs/index.html`](target/generated-docs/index.html) in a browser.
 
-If you face a build failure with the following log entry as the last one before the failure,
+If you face a build failure with the following log entry as the last one before the failure, basically saying "Command not found: asciidoctor-pdf":
 
 > [INFO] {"level":"fatal","time":1684333903235,"name":"antora","hint":"Add the --stacktrace option to see the cause of the error.","msg":"Command not found: asciidoctor-pdf"}
 
@@ -67,4 +69,7 @@ The output will still be in the same location, but it'll be generated from your 
 
 ## Deploying
 
-This site is currently deployed via GitHub Pages via GitHub Actions. For details, see the [workflow file](.github/workflows/build-and-deploy.yml).
+This site is currently deployed via GitHub Pages via GitHub Actions.
+For details, see the [workflow file](.github/workflows/build-and-deploy.yml).
+
+The current URL is [https://virtua-tech.github.io/jakartaee-tutorial-playbook/jakarta-ee-docs/current/index.html](https://virtua-tech.github.io/jakartaee-tutorial-playbook/jakarta-ee-docs/current/index.html).
