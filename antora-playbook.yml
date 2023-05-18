@@ -9,7 +9,7 @@ content:
     start_paths:
       - src/main/antora
     branches:
-      - feature/JETUT-21_migrate_release_8_to_antora
+      - release/8
   - url: https://github.com/virtua-tech/jakartaee-tutorial.git
     start_paths:
       - src/main/docs
@@ -32,3 +32,4 @@ runtime:
 antora:
   extensions:
   - '@antora/lunr-extension'
+  - '@antora/pdf-extension'
