@@ -1,4 +1,5 @@
 site:
+  url: https://jakarta.ee
   title: Jakarta EE Documentation
   start_page: jakarta-ee-docs::index.adoc
 
@@ -22,9 +23,14 @@ urls:
 
 ui:
   bundle:
-    url: https://github.com/virtua-tech/jakartaee-tutorial-ui/releases/download/draft/ui-bundle.zip
+    url: https://github.com/virtua-tech/jakartaee-tutorial-ui/releases/download/latest/ui-bundle.zip
     snapshot: true
 
 runtime:
   log:
     level: debug
+
+antora:
+  extensions:
+  - '@antora/lunr-extension'
+  - '@antora/pdf-extension'
