@@ -1,7 +1,7 @@
 site:
   url: https://jakarta.ee
   title: Jakarta EE Documentation
-  start_page: jakarta-ee-tutorial::index.adoc
+  start_page: jakartaee-tutorial::index.adoc
 
 content:
   # branches will be updated when PRs are merged
