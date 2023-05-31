@@ -1,7 +1,7 @@
 site:
   url: https://jakarta.ee
   title: Jakarta EE Documentation
-  start_page: jakarta-ee-docs::index.adoc
+  start_page: jakarta-ee-tutorial::index.adoc
 
 content:
   # branches will be updated when PRs are merged
@@ -11,12 +11,8 @@ content:
       - src/main/antora
     branches:
       - release/8
-  - url: https://github.com/virtua-tech/jakartaee-tutorial.git
-    start_paths:
-      - src/main/docs
-    branches:
-      - antora-prototype-9.1
-      - antora-prototype
+      - release/9.1
+      - main
 
 urls:
   latest_version_segment: current
