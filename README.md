@@ -41,6 +41,10 @@ mvn clean package
 The output will be in `target/generated-docs`.
 To view, just open [`target/generated-docs/index.html`](target/generated-docs/index.html) in a browser.
 
+```bash
+browse target/generated-docs/index.html
+```
+
 If you face a build failure with the following log entry as the last one before the failure, basically saying "Command not found: asciidoctor-pdf":
 
 > [INFO] {"level":"fatal","time":1684333903235,"name":"antora","hint":"Add the --stacktrace option to see the cause of the error.","msg":"Command not found: asciidoctor-pdf"}
@@ -67,9 +71,13 @@ mvn compile -Pauthor-mode
 
 The output will still be in the same location, but it'll be generated from your local clone of the repos instead of the remote.
 
+```bash
+browse target/generated-docs/index.html
+```
+
 ## Deploying
 
 This site is currently deployed via GitHub Pages via GitHub Actions.
 For details, see the [workflow file](.github/workflows/build-and-deploy.yml).
 
-The current URL is [https://virtua-tech.github.io/jakartaee-tutorial-playbook/jakarta-ee-docs/current/index.html](https://virtua-tech.github.io/jakartaee-tutorial-playbook/jakarta-ee-docs/current/index.html).
+The current URL is [https://virtua-tech.github.io/jakartaee-tutorial-playbook](https://virtua-tech.github.io/jakartaee-tutorial-playbook).
