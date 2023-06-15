@@ -10,7 +10,6 @@ content:
     start_paths:
       - src/main/antora
     branches:
-      - release/8
       - release/9.1
       - main
 
