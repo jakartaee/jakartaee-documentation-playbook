@@ -25,7 +25,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>jakarta.docs</groupId>
-    <artifactId>docs-site</artifactId>
+    <artifactId>jakartaee-documentation</artifactId>
     <packaging>pom</packaging>
     <!-- This version does not need to correspond to the Jakarta EE version, since the core Jakarta EE docs are in a different repo -->
     <version>10</version>
