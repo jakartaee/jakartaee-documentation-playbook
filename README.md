@@ -80,4 +80,4 @@ browse target/generated-docs/jakartaee-tutorial/current/index.html
 This site is currently deployed via GitHub Pages via GitHub Actions.
 For details, see the [workflow file](.github/workflows/build-and-deploy.yml).
 
-The current URL is [https://jakartaee.github.io/jakartaee-documentation/jakartaee-tutorial/current/](https://jakartaee.github.io/jakartaee-documentation/jakartaee-tutorial/current/).
+The current URL is [https://jakartaee.github.io/jakartaee-documentation/](https://jakartaee.github.io/jakartaee-documentation/).
