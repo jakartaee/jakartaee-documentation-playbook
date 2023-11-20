@@ -1,9 +1,9 @@
-# jakartaee-tutorial-playbook
+# jakartaee-documentation
 
-Root repo for building the Jakarta EE Tutorial site (from different repos).
+This is the repo for building the Jakarta EE Documentation site (from different repos); currently this consists of the Jakarta EE Tutorial.
 
-- Issue tracker: https://virtua.atlassian.net/jira/software/c/projects/JETUT/issues
-- Wiki: https://virtua.atlassian.net/wiki/spaces/JETR/overview
+- Repo for the tutorial content: [https://github.com/jakartaee/jakartaee-tutorial/](https://github.com/jakartaee/jakartaee-tutorial/)
+- Repo for the documentation UI: [https://github.com/jakartaee/jakartaee-documentation-ui/](https://github.com/jakartaee/jakartaee-documentation-ui/)
 
 ## Prerequisites
 
