@@ -11,7 +11,7 @@ content:
       - src/main/antora
     branches:
       - release/9.1
-      - main
+      - feature/78_refresh_intro_and_preface
 
 urls:
   latest_version_segment: current
