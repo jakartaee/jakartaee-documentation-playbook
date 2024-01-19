@@ -2,6 +2,8 @@ site:
   url: https://jakarta.ee
   title: Jakarta EE Documentation
   start_page: jakartaee-tutorial:ROOT:index.adoc
+  keys:
+    googleAnalytics: GTM-5WLCZXC
 
 content:
   # branches will be updated when PRs are merged
