@@ -1,5 +1,5 @@
 site:
-  url: https://jakarta.ee
+  url: https://jakarta.ee/learn/docs/
   title: Jakarta EE Documentation
   start_page: jakartaee-tutorial:ROOT:index.adoc
   keys:
