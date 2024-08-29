@@ -63,6 +63,49 @@ Antora supports an Author Mode that lets you work with local branches and your l
 This requires that you keep a local copy of `antora-playbook.yml` as `local-antora-playbook.yml`.
 Read [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/playbook/author-mode/) for details. 
 
+Summarized:
+
+1. Copy and paste `antora-playbook.yml` in same folder as `local-antora-playbook.yml`.
+2. In case you wish to use a different `jakartaee-tutorial` branch, edit the `content` entry.
+    * In case you wish to use the current local repo and branch:
+        ```
+        content:
+          sources:
+          - url: ../jakartaee-tutorial
+            start_paths:
+              - src/main/antora
+            branches:
+              - HEAD
+        ```
+    * In case you wish to use a different remote branch, e.g. when you have forked the `jakartaee-tutorial` repo:
+        ```
+        content:
+          sources:
+          - url: https://github.com/yourGitUserName/jakartaee-tutorial.git
+            start_paths:
+              - src/main/antora
+            branches:
+              - yourBranchName
+        ```
+3. In case you wish to use a different `jakartaee-documentation-ui` bundle, edit the `ui` entry.
+    * In case you wish to use the locally built `jakartaee-documentation-ui` bundle as instructed in "Package the UI" section of the README over there:
+        ```
+        ui:
+          output_dir: _
+          bundle:
+            url: ../jakartaee-documentation-ui/build/ui-bundle.zip
+            snapshot: true
+        ```
+        Note that this assumes that you have the UI repo checked out in the same parent folder as the current repo.
+    * In case you wish to use a different release, e.g. when you have forked the `jakartaee-documentation-ui` repo:
+        ```
+        ui:
+          output_dir: _
+          bundle:
+            url: https://github.com/yourGitUserName/jakartaee-documentation-ui/releases/download/latest/ui-bundle.zip
+            snapshot: true
+        ```
+
 Once you've created the `local-antora-playbook.yml` file, you can use the `author-mode` Maven profile:
 
 ```bash
