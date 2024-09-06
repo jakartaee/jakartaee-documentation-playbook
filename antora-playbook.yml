@@ -15,6 +15,12 @@ content:
       - release/9.1
       - main
 
+  - url: https://github.com/eclipse-ee4j/cargotracker.git
+    start_paths:
+      - src/main/antora
+    branches:
+      - docs
+
 urls:
   latest_version_segment: current
 
