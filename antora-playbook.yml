@@ -1,5 +1,5 @@
 site:
-  url: https://jakarta.ee/learn/docs/
+  url: https://jakarta.ee/learn/docs/jakartaee-tutorial/current/index.html
   title: Jakarta EE Documentation
   start_page: jakartaee-tutorial:ROOT:index.adoc
   keys:
@@ -8,18 +8,18 @@ site:
 content:
   # branches will be updated when PRs are merged
   sources:
-  - url: https://github.com/jakartaee/jakartaee-tutorial.git
-    start_paths:
-      - src/main/antora
-    branches:
-      - release/9.1
-      - main
+    - url: https://github.com/jakartaee/jakartaee-tutorial.git
+      start_paths:
+        - src/main/antora
+      branches:
+        - release/9.1
+        - main
 
-  - url: https://github.com/eclipse-ee4j/cargotracker.git
-    start_paths:
-      - src/main/antora
-    branches:
-      - docs
+    - url: https://github.com/eclipse-ee4j/cargotracker.git
+      start_paths:
+        - src/main/antora
+      branches:
+        - docs
 
 urls:
   latest_version_segment: current
@@ -36,5 +36,5 @@ runtime:
 
 antora:
   extensions:
-  - '@antora/lunr-extension'
-  - '@antora/pdf-extension'
+    - "@antora/lunr-extension"
+    - "@antora/pdf-extension"
