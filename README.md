@@ -7,15 +7,39 @@ This is the repo for building the Jakarta EE Documentation site (from different 
 
 ## Prerequisites
 
+The tools below are all required for building this project. 
+
+Maven drives the entire process, requires the Java Development Kit (JDK).
+Asciidoctor, which process the documentation content, requires Ruby.
+Antora, which builds the documentation site (using YaML configuration), uses Node.js and npm,
+but Maven automatically handles installation and execution.
+
 - [JDK](https://jdk.java.net/)
 - [Maven](https://maven.apache.org/)
 - [Ruby](https://rvm.io/)
 
+> NOTE: We assume you're using a UNIX/Linux shell such as bash, zsh, or sh. 
+On Windows, we assume you're using Git Bash or Windows Subsystem for Linux. If not, you'll have to translate these commands to PowerShell or Command Prompt commands.
+
 ## Setup
 
-JDK and Maven speak for themselves.
+### JDK
 
-Ruby, if `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable".
+Any recent JDK will do. 
+If you don't have a Java installed, you can get a recent version here: https://jdk.java.net/. 
+If you want to manage multiple JDKs on your system, 
+consider using [SDKMan](https://sdkman.io/) or [jenv](https://www.jenv.be/).
+
+### Maven
+
+Any recent version of Maven will do.
+If you don't have it installed, [download Maven](https://maven.apache.org/download.cgi) 
+and then install it manually by following [these directions](https://maven.apache.org/install.html).
+
+### Ruby
+
+If `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable".
+
 Summarized:
 
 ```bash
@@ -114,8 +138,14 @@ mvn compile -Pauthor-mode
 
 The output will still be in the same location, but it'll be generated from your local clone of the repos instead of the remote.
 
+Linux:
 ```bash
 browse target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+macOS:
+```bash
+open target/generated-docs/jakartaee-tutorial/current/index.html
 ```
 
 ### Run and Build Jakarta EE Documentation in Author Mode Using `build-jakartaee-docs.sh` Script
