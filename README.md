@@ -1,22 +1,49 @@
 # Jakarta EE Documentation
 
-This is the repo for building the Jakarta EE Documentation site (from different repos); currently this consists of the Jakarta EE Tutorial and Eclipse Cargo Tracker.
+This is the repo for building the Jakarta EE Documentation site (from different repos);
+currently this consists of the Jakarta EE Tutorial and Eclipse Cargo Tracker.
 
-- Repo for the tutorial content: [https://github.com/jakartaee/jakartaee-tutorial/](https://github.com/jakartaee/jakartaee-tutorial/)
-- Repo for the Cargo Tracker content (note that the content resides in the docs branch): [https://github.com/eclipse-ee4j/cargotracker/tree/docs](https://github.com/eclipse-ee4j/cargotracker/tree/docs)
-- Repo for the documentation UI: [https://github.com/jakartaee/jakartaee-documentation-ui/](https://github.com/jakartaee/jakartaee-documentation-ui/)
+## Related Repositories
+
+- [https://github.com/jakartaee/jakartaee-tutorial/](https://github.com/jakartaee/jakartaee-tutorial/) - Jakarta EE Tutorial content
+- [https://github.com/eclipse-ee4j/cargotracker/tree/docs](https://github.com/eclipse-ee4j/cargotracker/tree/docs) - Cargo Tracker content (note that the content resides in the `docs` branch)
+-  [https://github.com/jakartaee/jakartaee-documentation-ui/](https://github.com/jakartaee/jakartaee-documentation-ui/) - HTML and CSS assets used for the documentation site look and feel
 
 ## Prerequisites
+
+The tools below are all required for building this project. 
+
+Maven drives the entire process, requires the Java Development Kit (JDK).
+[Asciidoctor](https://asciidoctor.org/), which processes the documentation content, requires Ruby.
+[Antora](https://antora.org/), which builds the documentation site (using YAML configuration), uses Node.js and npm,
+but Maven automatically handles installation and execution.
 
 - [JDK](https://jdk.java.net/)
 - [Maven](https://maven.apache.org/)
 - [Ruby](https://rvm.io/)
 
+> NOTE: We assume you're using a UNIX/Linux shell such as bash, zsh, or sh. 
+On Windows, we assume you're using Git Bash or Windows Subsystem for Linux. If not, you'll have to translate these commands to PowerShell or Command Prompt commands.
+
 ## Setup
 
-JDK and Maven speak for themselves.
+### JDK
 
-For Ruby, if `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable".
+Any recent JDK will do. 
+If you don't have a Java installed, you can get a recent version here: https://jdk.java.net/. 
+If you want to manage multiple JDKs on your system, 
+consider using [SDKMan](https://sdkman.io/) or [jenv](https://www.jenv.be/).
+
+### Maven
+
+Any recent version of Maven will do.
+If you don't have it installed, [download Maven](https://maven.apache.org/download.cgi) 
+and then install it manually by following [these directions](https://maven.apache.org/install.html).
+
+### Ruby
+
+If `ruby -v` returns something like `Command 'ruby' not found` then [read the instructions](https://rvm.io/rvm/install) to install "RVM stable".
+
 Summarized:
 
 ```bash
@@ -39,19 +66,6 @@ To build, run:
 mvn clean package
 ```
 
-The output will be in `target/generated-docs`.
-To view the Tutorial, open [`target/generated-docs/jakartaee-tutorial/current/index.html`](target/generated-docs/jakartaee-tutorial/current/index.html) in a browser.
-
-```bash
-browse target/generated-docs/jakartaee-tutorial/current/index.html
-```
-
-To view Cargo Tracker, open [`target/generated-docs/cargotracker-documentation/current/index.html`](target/generated-docs/cargotracker-documentation/current/index.html) in a browser.
-
-```bash
-browse target/generated-docs/cargotracker-documentation/current/index.html
-```
-
 If you face a build failure with the following log entry as the last one before the failure, basically saying "Command not found: asciidoctor-pdf":
 
 > [INFO] {"level":"fatal","time":1684333903235,"name":"antora","hint":"Add the --stacktrace option to see the cause of the error.","msg":"Command not found: asciidoctor-pdf"}
@@ -64,13 +78,64 @@ source ~/.rvm/scripts/rvm
 
 You will need to make sure this is executed every time you open a new terminal. You could also simply add the script to your login profile.
 
+### Viewing Output
+
+The output will be in `target/generated-docs`.
+To view the Tutorial, open [`target/generated-docs/jakartaee-tutorial/current/index.html`](target/generated-docs/jakartaee-tutorial/current/index.html) in a browser.
+
+Linux
+```bash
+browse target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+macOS
+```bash
+open target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+Windows
+```bash
+start target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+To view Cargo Tracker, open [`target/generated-docs/cargotracker-documentation/current/index.html`](target/generated-docs/cargotracker-documentation/current/index.html) in a browser.
+
+Linux
+```bash
+browse target/generated-docs/cargotracker-documentation/current/index.html
+```
+
+macOS
+```bash
+open target/generated-docs/cargotracker-documentation/current/index.html
+```
+
+Windows
+```bash
+start target/generated-docs/cargotracker-documentation/current/index.html
+```
+
 ### Author Mode
 
 Antora supports an Author Mode that lets you work with local branches and your local worktree.
 This requires that you keep a local copy of `antora-playbook.yml` as `local-antora-playbook.yml`.
-Read [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/playbook/author-mode/) for details. 
 
-Summarized:
+We recommend cloning other repos which have content you want to modify.
+For example, let's say you want to modify content in the 
+[jakartaee-tutorial](https://github.com/jakartaee/jakartaee-tutorial/) and 
+[cargotracker](https://github.com/eclipse-ee4j/cargotracker/tree/docs) repos.
+
+You'd clone the repos in the same parent folder as this repo, so you'd end up with this directory structure:
+
+  ```bash
+  ├── parent-directory
+      ├── jakartaee-documentation/
+      └── jakartaee-tutorial/
+      └── cargotracker/
+  ```
+
+You can [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/playbook/author-mode/) for details,
+but here is the summary of the process:
 
 1. Copy and paste `antora-playbook.yml` in same folder as `local-antora-playbook.yml`.
 2. In case you wish to use a different `jakartaee-tutorial` branch, edit the `content` entry.
@@ -142,13 +207,7 @@ mvn compile -Pauthor-mode
 
 The output will still be in the same location, but it'll be generated from your local clone of the repos instead of the remote.
 
-```bash
-browse target/generated-docs/jakartaee-tutorial/current/index.html
-```
-
-```bash
-browse target/generated-docs/cargotracker-documentation/current/index.html
-```
+You can then view it as described in the [Viewing Output](#viewing-output) section above.
 
 ## Deploying
 
