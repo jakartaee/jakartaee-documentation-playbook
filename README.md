@@ -65,8 +65,19 @@ mvn clean package
 The output will be in `target/generated-docs`.
 To view, just open [`target/generated-docs/jakartaee-tutorial/current/index.html`](target/generated-docs/jakartaee-tutorial/current/index.html) in a browser.
 
+Linux
 ```bash
 browse target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+macOS
+```bash
+open target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+Windows
+```bash
+start target/generated-docs/jakartaee-tutorial/current/index.html
 ```
 
 If you face a build failure with the following log entry as the last one before the failure, basically saying "Command not found: asciidoctor-pdf":
@@ -85,9 +96,23 @@ Or to make sure this is executed every time you open a new terminal.
 
 Antora supports an Author Mode that lets you work with local branches and your local worktree.
 This requires that you keep a local copy of `antora-playbook.yml` as `local-antora-playbook.yml`.
-Read [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/playbook/author-mode/) for details.
 
-Summarized:
+We recommend cloning other repos which have content you want to modify.
+For example, let's say you want to modify content in the 
+[jakartaee-tutorial](https://github.com/jakartaee/jakartaee-tutorial/) and 
+[cargotracker](https://github.com/eclipse-ee4j/cargotracker/tree/docs) repos.
+
+You'd clone the repos in the same parent folder as this repo, so you'd end up with this directory structure:
+
+  ```bash
+  ├── parent-directory
+      ├── jakartaee-documentation/
+      └── jakartaee-tutorial/
+      └── cargotracker/
+  ```
+
+You can [Use Author Mode :: Antora Docs](https://docs.antora.org/antora/latest/playbook/author-mode/) for details,
+but here is the summary of the process:
 
 1. Copy and paste `antora-playbook.yml` in same folder as `local-antora-playbook.yml`.
 2. In case you wish to use a different `jakartaee-tutorial` branch, edit the `content` entry.
@@ -146,6 +171,11 @@ browse target/generated-docs/jakartaee-tutorial/current/index.html
 macOS:
 ```bash
 open target/generated-docs/jakartaee-tutorial/current/index.html
+```
+
+Windows:
+```bash
+start target/generated-docs/jakartaee-tutorial/current/index.html
 ```
 
 ### Run and Build Jakarta EE Documentation in Author Mode Using `build-jakartaee-docs.sh` Script
