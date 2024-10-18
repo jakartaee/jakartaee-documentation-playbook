@@ -1,18 +1,21 @@
 # Jakarta EE Documentation
 
-This is the repo for building the Jakarta EE Documentation site (from different repos); currently this consists of the Jakarta EE Tutorial and Eclipse Cargo Tracker.
+This is the repo for building the Jakarta EE Documentation site (from different repos);
+currently this consists of the Jakarta EE Tutorial and Eclipse Cargo Tracker.
 
-- Repo for the tutorial content: [https://github.com/jakartaee/jakartaee-tutorial/](https://github.com/jakartaee/jakartaee-tutorial/)
-- Repo for the Cargo Tracker content (note that the content resides in the docs branch): [https://github.com/eclipse-ee4j/cargotracker/tree/docs](https://github.com/eclipse-ee4j/cargotracker/tree/docs)
-- Repo for the documentation UI: [https://github.com/jakartaee/jakartaee-documentation-ui/](https://github.com/jakartaee/jakartaee-documentation-ui/)
+## Related Repositories
+
+- [https://github.com/jakartaee/jakartaee-tutorial/](https://github.com/jakartaee/jakartaee-tutorial/) - Jakarta EE Tutorial content
+- [https://github.com/eclipse-ee4j/cargotracker/tree/docs](https://github.com/eclipse-ee4j/cargotracker/tree/docs) - Cargo Tracker content (note that the content resides in the `docs` branch)
+-  [https://github.com/jakartaee/jakartaee-documentation-ui/](https://github.com/jakartaee/jakartaee-documentation-ui/) - HTML and CSS assets used for the documentation site look and feel
 
 ## Prerequisites
 
 The tools below are all required for building this project. 
 
 Maven drives the entire process, requires the Java Development Kit (JDK).
-Asciidoctor, which process the documentation content, requires Ruby.
-Antora, which builds the documentation site (using YaML configuration), uses Node.js and npm,
+[Asciidoctor](https://asciidoctor.org/), which processes the documentation content, requires Ruby.
+[Antora](https://antora.org/), which builds the documentation site (using YAML configuration), uses Node.js and npm,
 but Maven automatically handles installation and execution.
 
 - [JDK](https://jdk.java.net/)
