@@ -75,7 +75,7 @@ source ~/.rvm/scripts/rvm
 
 You will need to make sure this is executed every time you open a new terminal. You could also simply add the script to your login profile.
 
-### Viewing Ouput
+### Viewing Output
 
 The output will be in `target/generated-docs`.
 To view the Tutorial, open [`target/generated-docs/jakartaee-tutorial/current/index.html`](target/generated-docs/jakartaee-tutorial/current/index.html) in a browser.
