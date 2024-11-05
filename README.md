@@ -240,7 +240,7 @@ Before using the script, ensure that:
       └── jakartaee-documentation/
   ```
 
-- Node.js and Gulp are installed for building the UI.
+- Node.js and Gulp are installed for building [the UI](https://github.com/jakartaee/jakartaee-documentation-ui).
 - Apache Maven is installed for building the documentation.
 - You are running the script from the root of the `jakartaee-documentation` repository.
 
@@ -281,7 +281,7 @@ The script performs the following steps:
 
 2. Switch Back to `jakartaee-documentation:`
 
-   - Navigates back to the `jakartaee-documentation` repository after building the UI.
+   - Navigates back to the `jakartaee-documentation` repository after building [the UI](https://github.com/jakartaee/jakartaee-documentation-ui).
 
 3. Copy the Antora Playbook:
 
